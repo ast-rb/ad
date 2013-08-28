@@ -2,7 +2,7 @@
 
 <section>
   <% @ads.each do |ad|  %>
-    <p><%= ad.title %></p>
+    <p><%= link_to ad.title, show_path(ad) %></p>
   <% end %>
 </section>
 

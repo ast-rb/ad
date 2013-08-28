@@ -1,2 +1,4 @@
-<h1>Index#show</h1>
-<p>Find me in app/views/index/show.html.erb</p>
+<h1><%= @ad.title %></h1>
+<p><%= @ad.body.html_safe %></p>
+<p><%= link_to 'Вернутся к объявлениям', controller: :index  %></p>
+

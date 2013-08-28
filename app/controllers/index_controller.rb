@@ -7,5 +7,9 @@ class IndexController < ApplicationController
   end
 
   def show
+
+    @ad = Ad.find_by_id(params[:id])
+    redirect_to action: :index unless @ad
+
   end
 end

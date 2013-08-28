@@ -1,7 +1,11 @@
 Advertisement::Application.routes.draw do
-  get "index/index"
+  #resources :index, :only => [:index, :show]
+  root :to => 'index#index'
+  get 'show/(:id)', to: 'index#show', :as => :show
 
-  get "index/show"
+
+  # get "index/show"
+  # get "index/index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
