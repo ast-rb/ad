@@ -1,4 +1,8 @@
 Advertisement::Application.routes.draw do
+  get "index/index"
+
+  get "index/show"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
