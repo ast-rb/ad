@@ -1,4 +1,7 @@
-<h1><%= @ad.title %></h1>
-<p><%= @ad.body.html_safe %></p>
-<p><%= link_to 'Вернутся к объявлениям', controller: :index  %></p>
-
+<div class="row">
+    <div class="itemad span9 well">
+        <h1><%= @ad.title %></h1>
+        <p><%= @ad.body.html_safe %></p>
+        <p><%= link_to 'Вернутся к объявлениям', controller: :index  %></p>
+    </div>
+</div>

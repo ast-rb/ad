@@ -10,4 +10,18 @@
  *
  *= require_self
  *= require_tree .
+  *= require_tree .
  */
+
+body {
+    padding-top: 60px; /* Нужно добавить, если navbar фиксирован сверху */
+}
+
+.navbar .brand {
+    font-size: 15px !important ;
+}
+
+.itemad {
+    margin-bottom: 10px ;
+}
+

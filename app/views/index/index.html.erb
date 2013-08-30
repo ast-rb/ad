@@ -1,8 +1,53 @@
-<h1>Main Page</h1>
+<ul class="breadcrumb">
+    <li>
+        <a href="#">Главная</a> <span class="divider">/</span>
+    </li>
+    <!--<li>
+        <a href="#">Галерея изображений</a> <span class="divider">/</span>
+    </li>
+    <li class="active">Природа</li>-->
+</ul>
 
-<section>
-  <% @ads.each do |ad|  %>
-    <p><%= link_to ad.title, show_path(ad) %></p>
-  <% end %>
-</section>
+<div class="page-header">
+    <h3>Объявления:</h3>
+</div>
+
+
+             <!--
+			<ul class="nav nav-tabs">
+				<li class="active"><a href="#tab1" data-toggle="tab">Природа</a></li>
+				<li><a href="#tab2" data-toggle="tab">Космос</a></li>
+				<li><a href="#tab3" data-toggle="tab">Города</a></li>
+			</ul>
+            -->
+
+
+<div class="row">
+    <% @ads.each do |ad| %>
+        <div class="itemad span9 well">
+            <%= link_to ad.title, show_path(ad) %>
+            <div class="row">
+                <small class="span5">Автор:</small>
+                <small class="span4">Дата:</small>
+            </div>
+        </div>
+    <% end %>
+</div>
+
+<div class="pagination">
+    <ul>
+        <li><a href="#">Предыдущая</a></li>
+        <li class="active">
+            <a href="#">1</a>
+        </li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li class="disabled"><a href="#">...</a></li>
+        <li><a href="#">Следующая</a></li>
+    </ul>
+</div>
+
+
+
 
