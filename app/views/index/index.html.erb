@@ -34,20 +34,7 @@
     <% end %>
 </div>
 
-<div class="pagination">
-    <ul>
-        <li><a href="#">Предыдущая</a></li>
-        <li class="active">
-            <a href="#">1</a>
-        </li>
-        <li><a href="#">2</a></li>
-        <li><a href="#">3</a></li>
-        <li><a href="#">4</a></li>
-        <li class="disabled"><a href="#">...</a></li>
-        <li><a href="#">Следующая</a></li>
-    </ul>
-</div>
 
-
+<%= will_paginate @ads, renderer: BootstrapPagination::Rails, previous_label: "Предыдущая", next_label: 'Следующая'  %>
 
 
