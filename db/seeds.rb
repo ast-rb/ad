@@ -6,6 +6,11 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+Type.create( name: 'Buy')
+Type.create( name: 'Sell')
+
+
+
 Ad.create(title: 'Ad-1',
   body:
     %{<p>

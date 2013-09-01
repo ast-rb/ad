@@ -1,4 +1,6 @@
 Advertisement::Application.routes.draw do
+  devise_for :users
+
   #resources :index, :only => [:index, :show]
   root :to => 'index#index'
   get 'show/(:id)', to: 'index#show', :as => :show
