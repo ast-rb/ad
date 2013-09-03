@@ -6,9 +6,16 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Type.create( name: 'Buy')
-Type.create( name: 'Sell')
+puts 'Loading seed data now....'
 
+t1 = Type.create( name: 'Buy')
+t2 = Type.create( name: 'Sell')
+puts 'Types added'
+
+
+u1 = User.create(email: 'test1@gmail.com', password: 'megapassword')
+u2 = User.create(email: 'test1@gmail.com', password: 'megapassword')
+puts 'Users added'
 
 
 Ad.create(title: 'Ad-1',
@@ -19,7 +26,9 @@ Ad.create(title: 'Ad-1',
 	book on this exciting new language, CoffeeScript guru Trevor Burnham
 	shows you how to hold onto all the power and flexibility of JavaScript
 	while writing clearer, cleaner, and safer code.
-      </p>}
+      </p>},
+  type_id: t1,
+  user_id: u1
 )
 
 Ad.create(title: 'Ad-2',
@@ -30,7 +39,9 @@ Ad.create(title: 'Ad-2',
 	book on this exciting new language, CoffeeScript guru Trevor Burnham
 	shows you how to hold onto all the power and flexibility of JavaScript
 	while writing clearer, cleaner, and safer code.
-      </p>}
+      </p>},
+  type_id: t2,
+  user_id: u2
 )
 
 Ad.create(title: 'Ad-3',
@@ -41,7 +52,9 @@ Ad.create(title: 'Ad-3',
 	book on this exciting new language, CoffeeScript guru Trevor Burnham
 	shows you how to hold onto all the power and flexibility of JavaScript
 	while writing clearer, cleaner, and safer code.
-      </p>}
+      </p>},
+  type_id: t1,
+  user_id: u1
 )
 
 Ad.create(title: 'Ad-4',
@@ -52,7 +65,9 @@ Ad.create(title: 'Ad-4',
 	book on this exciting new language, CoffeeScript guru Trevor Burnham
 	shows you how to hold onto all the power and flexibility of JavaScript
 	while writing clearer, cleaner, and safer code.
-      </p>}
+      </p>},
+  type_id: t2,
+  user_id: u2
 )
 
 Ad.create(title: 'Ad-5',
@@ -63,7 +78,9 @@ Ad.create(title: 'Ad-5',
 	book on this exciting new language, CoffeeScript guru Trevor Burnham
 	shows you how to hold onto all the power and flexibility of JavaScript
 	while writing clearer, cleaner, and safer code.
-      </p>}
+      </p>},
+  type_id: t1,
+  user_id: u1
 )
 
 Ad.create(title: 'Ad-6',
@@ -74,7 +91,11 @@ Ad.create(title: 'Ad-6',
 	book on this exciting new language, CoffeeScript guru Trevor Burnham
 	shows you how to hold onto all the power and flexibility of JavaScript
 	while writing clearer, cleaner, and safer code.
-      </p>}
+      </p>},
+  type_id: t2,
+  user_id: u2
+
+
 )
 
 Ad.create(title: 'Ad-7',
@@ -85,7 +106,9 @@ Ad.create(title: 'Ad-7',
 	book on this exciting new language, CoffeeScript guru Trevor Burnham
 	shows you how to hold onto all the power and flexibility of JavaScript
 	while writing clearer, cleaner, and safer code.
-      </p>}
+      </p>},
+  type_id: t1,
+  user_id: u1
 )
 
 Ad.create(title: 'Ad-8',
@@ -96,7 +119,9 @@ Ad.create(title: 'Ad-8',
 	book on this exciting new language, CoffeeScript guru Trevor Burnham
 	shows you how to hold onto all the power and flexibility of JavaScript
 	while writing clearer, cleaner, and safer code.
-      </p>}
+      </p>},
+  type_id: t2,
+  user_id: u2
 )
 
 Ad.create(title: 'Ad-9',
@@ -107,7 +132,8 @@ Ad.create(title: 'Ad-9',
 	book on this exciting new language, CoffeeScript guru Trevor Burnham
 	shows you how to hold onto all the power and flexibility of JavaScript
 	while writing clearer, cleaner, and safer code.
-      </p>}
+      </p>},
+  type_id: t1
 )
 
 Ad.create(title: 'Ad-10',
@@ -118,7 +144,9 @@ Ad.create(title: 'Ad-10',
 	book on this exciting new language, CoffeeScript guru Trevor Burnham
 	shows you how to hold onto all the power and flexibility of JavaScript
 	while writing clearer, cleaner, and safer code.
-      </p>}
+      </p>},
+  type_id: t2,
+  user_id: u2
 )
 
 Ad.create(title: 'Ad-11',
@@ -129,5 +157,8 @@ Ad.create(title: 'Ad-11',
 	book on this exciting new language, CoffeeScript guru Trevor Burnham
 	shows you how to hold onto all the power and flexibility of JavaScript
 	while writing clearer, cleaner, and safer code.
-      </p>}
+      </p>},
+  type_id: t1,
+  user_id: u1
 )
+puts 'Ads added'

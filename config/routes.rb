@@ -4,7 +4,7 @@ Advertisement::Application.routes.draw do
   #resources :index, :only => [:index, :show]
   root :to => 'index#index'
   get 'show/(:id)', to: 'index#show', :as => :show
-
+  resources :ads
 
   # get "index/show"
   # get "index/index"
