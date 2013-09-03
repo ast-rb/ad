@@ -1,0 +1,22 @@
+.span3
+  %div{:class => "well"}= "Вы вошли как: #{current_user.username}" if user_signed_in?
+
+  %div{:class => "well", :style => "padding: 8px 0;"}
+    %ul{:class => "nav nav-list"}
+      %li{:class => "nav nav-list"} Меню
+
+      %li{:class => "active"}
+        %a{title: '@title', href: '#'} Главная
+        - if user_signed_in?
+          %li= link_to 'Профиль', edit_user_registration_path
+          %li= link_to 'Мои объявления', ads_path
+          %li
+            %a{title: '@title', href: '#'} Настройки
+          %li= link_to 'Выход', destroy_user_session_path, method: :delete
+        - else
+          %li= link_to 'Регистрация', new_user_registration_path
+          %li= link_to 'Вход', new_user_session_path
+        %li{:class => "divider", :style => "padding: 8px 0;"}
+        %li
+          %a{title: '@title', href: '#'} Помощь
+

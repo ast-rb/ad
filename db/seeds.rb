@@ -13,8 +13,8 @@ t2 = Type.create( name: 'Sell')
 puts 'Types added'
 
 
-u1 = User.create(email: 'test1@gmail.com', password: 'megapassword')
-u2 = User.create(email: 'test1@gmail.com', password: 'megapassword')
+u1 = User.create(username: 'test1', email: 'test1@gmail.com', password: 'megapassword')
+u2 = User.create(username: 'test2', email: 'test2@gmail.com', password: 'megapassw')
 puts 'Users added'
 
 
@@ -28,7 +28,7 @@ Ad.create(title: 'Ad-1',
 	while writing clearer, cleaner, and safer code.
       </p>},
   type_id: t1,
-  user_id: u1
+  user_id: u1.id
 )
 
 Ad.create(title: 'Ad-2',
@@ -41,7 +41,7 @@ Ad.create(title: 'Ad-2',
 	while writing clearer, cleaner, and safer code.
       </p>},
   type_id: t2,
-  user_id: u2
+  user_id: u2.id
 )
 
 Ad.create(title: 'Ad-3',
@@ -53,8 +53,8 @@ Ad.create(title: 'Ad-3',
 	shows you how to hold onto all the power and flexibility of JavaScript
 	while writing clearer, cleaner, and safer code.
       </p>},
-  type_id: t1,
-  user_id: u1
+  type_id: t1.id,
+  user_id: u1.id
 )
 
 Ad.create(title: 'Ad-4',
@@ -66,8 +66,8 @@ Ad.create(title: 'Ad-4',
 	shows you how to hold onto all the power and flexibility of JavaScript
 	while writing clearer, cleaner, and safer code.
       </p>},
-  type_id: t2,
-  user_id: u2
+  type_id: t2.id,
+  user_id: u2.id
 )
 
 Ad.create(title: 'Ad-5',
@@ -79,8 +79,8 @@ Ad.create(title: 'Ad-5',
 	shows you how to hold onto all the power and flexibility of JavaScript
 	while writing clearer, cleaner, and safer code.
       </p>},
-  type_id: t1,
-  user_id: u1
+  type_id: t1.id,
+  user_id: u1.id
 )
 
 Ad.create(title: 'Ad-6',
@@ -92,10 +92,8 @@ Ad.create(title: 'Ad-6',
 	shows you how to hold onto all the power and flexibility of JavaScript
 	while writing clearer, cleaner, and safer code.
       </p>},
-  type_id: t2,
-  user_id: u2
-
-
+  type_id: t2.id,
+  user_id: u2.id
 )
 
 Ad.create(title: 'Ad-7',
@@ -107,8 +105,8 @@ Ad.create(title: 'Ad-7',
 	shows you how to hold onto all the power and flexibility of JavaScript
 	while writing clearer, cleaner, and safer code.
       </p>},
-  type_id: t1,
-  user_id: u1
+  type_id: t1.id,
+  user_id: u1.id
 )
 
 Ad.create(title: 'Ad-8',
@@ -120,8 +118,8 @@ Ad.create(title: 'Ad-8',
 	shows you how to hold onto all the power and flexibility of JavaScript
 	while writing clearer, cleaner, and safer code.
       </p>},
-  type_id: t2,
-  user_id: u2
+  type_id: t2.id,
+  user_id: u2.id
 )
 
 Ad.create(title: 'Ad-9',
@@ -133,7 +131,8 @@ Ad.create(title: 'Ad-9',
 	shows you how to hold onto all the power and flexibility of JavaScript
 	while writing clearer, cleaner, and safer code.
       </p>},
-  type_id: t1
+  type_id: t1.id,
+  user_id: u1.id
 )
 
 Ad.create(title: 'Ad-10',
@@ -145,8 +144,8 @@ Ad.create(title: 'Ad-10',
 	shows you how to hold onto all the power and flexibility of JavaScript
 	while writing clearer, cleaner, and safer code.
       </p>},
-  type_id: t2,
-  user_id: u2
+  type_id: t2.id,
+  user_id: u2.id
 )
 
 Ad.create(title: 'Ad-11',
@@ -158,7 +157,7 @@ Ad.create(title: 'Ad-11',
 	shows you how to hold onto all the power and flexibility of JavaScript
 	while writing clearer, cleaner, and safer code.
       </p>},
-  type_id: t1,
-  user_id: u1
+  type_id: t1.id,
+  user_id: u1.id
 )
 puts 'Ads added'
