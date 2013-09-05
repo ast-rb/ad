@@ -1,0 +1,8 @@
+.row
+  %div{class: "itemad span9 well"}
+    %h1= @ad.title
+    %p= @ad.body.html_safe
+
+    = link_to 'Edit', edit_ad_path(@ad)
+    |
+    = link_to 'Back', ads_path

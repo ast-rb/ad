@@ -1,41 +1,29 @@
 
 class AdsController < ApplicationController
-  # GET /ads
-  # GET /ads.json
-  def index
-    @ads = Ad.all
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @ads }
-    end
+  before_filter :authenticate_user!
+
+  def index
+    @ads = current_user.ads.all
   end
 
   # GET /ads/1
   # GET /ads/1.json
   def show
-    @ad = Ad.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @ad }
-    end
+    @ad = current_user.ads.find_by_id(params[:id])
+    redirect_to action: :index unless @ad
   end
 
   # GET /ads/new
   # GET /ads/new.json
   def new
     @ad = Ad.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @ad }
-    end
   end
 
   # GET /ads/1/edit
   def edit
-    @ad = Ad.find(params[:id])
+    @ad = current_user.ads.find_by_id(params[:id])
+    redirect_to action: :index unless @ad
   end
 
   # POST /ads
@@ -81,4 +69,8 @@ class AdsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+private
+
+
 end
