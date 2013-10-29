@@ -27,8 +27,10 @@ Ad.create(title: 'Ad-1',
 	shows you how to hold onto all the power and flexibility of JavaScript
 	while writing clearer, cleaner, and safer code.
       </p>},
+  status: 'draft',
   type_id: t1,
-  user_id: u1.id
+  user_id: u1
+
 )
 
 Ad.create(title: 'Ad-2',
@@ -40,8 +42,10 @@ Ad.create(title: 'Ad-2',
 	shows you how to hold onto all the power and flexibility of JavaScript
 	while writing clearer, cleaner, and safer code.
       </p>},
+  status: 'draft',
   type_id: t2,
-  user_id: u2.id
+  user_id: u2,
+
 )
 
 Ad.create(title: 'Ad-3',
@@ -53,8 +57,10 @@ Ad.create(title: 'Ad-3',
 	shows you how to hold onto all the power and flexibility of JavaScript
 	while writing clearer, cleaner, and safer code.
       </p>},
-  type_id: t1.id,
-  user_id: u1.id
+  status: 'new',
+  type_id: t1,
+  user_id: u1,
+
 )
 
 Ad.create(title: 'Ad-4',
@@ -66,8 +72,10 @@ Ad.create(title: 'Ad-4',
 	shows you how to hold onto all the power and flexibility of JavaScript
 	while writing clearer, cleaner, and safer code.
       </p>},
-  type_id: t2.id,
-  user_id: u2.id
+  status: 'new',
+  type_id: t2,
+  user_id: u2,
+
 )
 
 Ad.create(title: 'Ad-5',
@@ -79,8 +87,9 @@ Ad.create(title: 'Ad-5',
 	shows you how to hold onto all the power and flexibility of JavaScript
 	while writing clearer, cleaner, and safer code.
       </p>},
-  type_id: t1.id,
-  user_id: u1.id
+  type_id: t1,
+  user_id: u1,
+  status: 'rejected'
 )
 
 Ad.create(title: 'Ad-6',
@@ -92,8 +101,9 @@ Ad.create(title: 'Ad-6',
 	shows you how to hold onto all the power and flexibility of JavaScript
 	while writing clearer, cleaner, and safer code.
       </p>},
-  type_id: t2.id,
-  user_id: u2.id
+  type_id: t2,
+  user_id: u2,
+  status: 'rejected'
 )
 
 Ad.create(title: 'Ad-7',
@@ -105,8 +115,9 @@ Ad.create(title: 'Ad-7',
 	shows you how to hold onto all the power and flexibility of JavaScript
 	while writing clearer, cleaner, and safer code.
       </p>},
-  type_id: t1.id,
-  user_id: u1.id
+  type_id: t1,
+  user_id: u1,
+  status: 'approved'
 )
 
 Ad.create(title: 'Ad-8',
@@ -118,8 +129,9 @@ Ad.create(title: 'Ad-8',
 	shows you how to hold onto all the power and flexibility of JavaScript
 	while writing clearer, cleaner, and safer code.
       </p>},
-  type_id: t2.id,
-  user_id: u2.id
+  type_id: t2,
+  user_id: u2,
+  status: 'approved'
 )
 
 Ad.create(title: 'Ad-9',
@@ -131,8 +143,9 @@ Ad.create(title: 'Ad-9',
 	shows you how to hold onto all the power and flexibility of JavaScript
 	while writing clearer, cleaner, and safer code.
       </p>},
-  type_id: t1.id,
-  user_id: u1.id
+  type_id: t1,
+  user_id: u1,
+  status: 'published'
 )
 
 Ad.create(title: 'Ad-10',
@@ -144,8 +157,9 @@ Ad.create(title: 'Ad-10',
 	shows you how to hold onto all the power and flexibility of JavaScript
 	while writing clearer, cleaner, and safer code.
       </p>},
-  type_id: t2.id,
-  user_id: u2.id
+  type_id: t2,
+  user_id: u2,
+  status: 'published'
 )
 
 Ad.create(title: 'Ad-11',
@@ -157,7 +171,22 @@ Ad.create(title: 'Ad-11',
 	shows you how to hold onto all the power and flexibility of JavaScript
 	while writing clearer, cleaner, and safer code.
       </p>},
-  type_id: t1.id,
-  user_id: u1.id
+  type_id: t1,
+  user_id: u1,
+  status: 'archive'
+)
+
+Ad.create(title: 'Ad-12',
+  body:
+    %{<p>
+        CoffeeScript is JavaScript done right. It provides all of JavaScript's
+	functionality wrapped in a cleaner, more succinct syntax. In the first
+	book on this exciting new language, CoffeeScript guru Trevor Burnham
+	shows you how to hold onto all the power and flexibility of JavaScript
+	while writing clearer, cleaner, and safer code.
+      </p>},
+  type_id: t2,
+  user_id: u2,
+  status: 'archive'
 )
 puts 'Ads added'

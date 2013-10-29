@@ -11,6 +11,7 @@
     </div>
   <% end %>
 
+  <%= f.collection_select :state_event, @user.state_transitions, :event, :human_to_name, :include_blank => @user.human_state_name %>
   <div class="actions">
     <%= f.submit %>
   </div>

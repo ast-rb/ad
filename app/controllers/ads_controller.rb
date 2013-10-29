@@ -23,7 +23,9 @@ class AdsController < ApplicationController
   # GET /ads/1/edit
   def edit
     @ad = current_user.ads.find_by_id(params[:id])
+
     redirect_to action: :index unless @ad
+
   end
 
   # POST /ads
@@ -45,6 +47,8 @@ class AdsController < ApplicationController
   # PUT /ads/1
   # PUT /ads/1.json
   def update
+
+    # Есть возможность изменить любую
     @ad = Ad.find(params[:id])
 
     respond_to do |format|

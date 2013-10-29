@@ -4,6 +4,8 @@
   = f.input :title
   = f.input :body, as: :text, input_html: { class: 'input-xxlarge' }
   = f.association :type, as: :radio_buttons
+  = f.label :state
+  = f.collection_select :state_event, @ad.state_transitions, :event, :human_to_name, :include_blank => @ad.human_state_name
   = f.button :submit, label: "Редактировать"
 
 = link_to 'Show', @ad

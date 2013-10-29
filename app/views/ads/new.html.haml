@@ -3,7 +3,10 @@
 = simple_form_for @ad do |f|
   = f.input :title
   = f.input :body, as: :text, input_html: { class: 'input-xxlarge' }
-    = f.association :type, as: :radio_buttons
+  = f.association :type, as: :radio_buttons
   = f.button :submit, label: "Создать"
+
+
+
 
 = link_to 'Back', ads_path

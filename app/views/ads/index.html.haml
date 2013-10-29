@@ -6,17 +6,19 @@
     %th
     %th
     %th
-
+    %th
   - @ads.each do |ad|
     %tr
     %td
       = ad.title
     %td
+      = ad.state
+    %td
       = link_to 'Show', ad
     %td
-      = link_to 'Edit', edit_ad_path(ad)
+      = state_edit_ad(ad)
     %td
-      = link_to 'Destroy', ad, confirm: 'Are you sure?', method: :delete
+      = status_destroy_ad(ad)
 
 %br
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130903162811) do
+ActiveRecord::Schema.define(:version => 20131023174324) do
 
   create_table "ads", :force => true do |t|
     t.string   "title"
@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(:version => 20130903162811) do
     t.datetime "updated_at", :null => false
     t.integer  "type_id"
     t.integer  "user_id"
+    t.string   "status"
+    t.string   "state"
   end
 
   create_table "types", :force => true do |t|
