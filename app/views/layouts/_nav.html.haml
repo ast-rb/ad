@@ -6,7 +6,7 @@
       %li{class: "nav nav-list"} Меню
 
       %li{class: "active"}
-        %a{title: '@title', href: '#'} Главная
+        %a{title: '@title', href: '/'} Главная
         - if user_signed_in?
           %li= link_to 'Профиль', edit_user_registration_path
           %li= link_to 'Мои объявления', ads_path

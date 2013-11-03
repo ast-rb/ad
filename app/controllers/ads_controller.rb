@@ -10,6 +10,7 @@ class AdsController < ApplicationController
   # GET /ads/1
   # GET /ads/1.json
   def show
+    # Find_by_id, используется что бы не вызывать эксепшн, или лучше с эксепшн?
     @ad = current_user.ads.find_by_id(params[:id])
     redirect_to action: :index unless @ad
   end
@@ -18,21 +19,27 @@ class AdsController < ApplicationController
   # GET /ads/new.json
   def new
     @ad = Ad.new
+    image = @ad.images.build
   end
 
   # GET /ads/1/edit
   def edit
-    @ad = current_user.ads.find_by_id(params[:id])
 
-    redirect_to action: :index unless @ad
+    @ad = current_user.ads.find_by_id(params[:id])
+    image = @ad.images.build
+
+    # Возможно как то отрефакторить, но не совсем понимаю как.
+    redirect_to action: :index unless @ad && @ad.state == 'draft'
+
 
   end
 
   # POST /ads
   # POST /ads.json
   def create
-    @ad = Ad.new(params[:ad])
 
+    @ad = Ad.new(params[:ad])
+    @ad.user_id = current_user
     respond_to do |format|
       if @ad.save
         format.html { redirect_to @ad, notice: 'Ad was successfully created.' }

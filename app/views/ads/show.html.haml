@@ -2,7 +2,11 @@
   %div{class: "itemad span9 well"}
     %h1= @ad.title
     %p= @ad.body.html_safe
+    %p= @ad.body
 
+    = for image in @ad.images
+      %p= image_tag image.photo.url(:mini) if image.photo?
+    %br
     = link_to 'Edit', edit_ad_path(@ad)
     |
     = link_to 'Back', ads_path

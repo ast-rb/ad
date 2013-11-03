@@ -1,8 +1,19 @@
 class Ad < ActiveRecord::Base
   # FIX: Dangerous
   attr_accessible :title, :body, :type_id, :user_id,
-                    :state, :state_event, :status
+                  :state, :state_event, :status, :name,
+                  :images, :images_attributes, :_destroy
+  attr_accessor :_destroy
+
   #validates_presence_of :name, :state
+
+  has_many :images
+  belongs_to :type
+  belongs_to :user
+  accepts_nested_attributes_for :images, :reject_if => lambda { |a| a[:name].blank? }, allow_destroy: true
+  
+
+
 
 
   state_machine :initial => :draft do # Задание изначального состояния
@@ -27,24 +38,10 @@ class Ad < ActiveRecord::Base
       end
 
       event :return do
-            transition :archive => :draft
+        transition :archive => :draft
       end
 
 
     end
-
-
-
-
-
-
-
-
-
-
-  belongs_to :type
-  belongs_to :user
-
-
 
 end

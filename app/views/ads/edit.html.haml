@@ -1,11 +1,17 @@
 %h3 Editing ad
 
-= simple_form_for @ad do |f|
+= simple_nested_form_for @ad, :html => {:multipart => true} do |f|
   = f.input :title
   = f.input :body, as: :text, input_html: { class: 'input-xxlarge' }
   = f.association :type, as: :radio_buttons
   = f.label :state
   = f.collection_select :state_event, @ad.state_transitions, :event, :human_to_name, :include_blank => @ad.human_state_name
+  =#TODO: Добавить возможнсть добавлять изображения
+  =#TODO: Добавить скрипт подгрузки картинок
+
+
+  = f.fields_for :images
+  = f.link_to_add "New field image", :images
   = f.button :submit, label: "Редактировать"
 
 = link_to 'Show', @ad
