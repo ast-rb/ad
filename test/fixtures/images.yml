@@ -1,9 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
+one_1:
   ad_id: 1
-  name: MyString
+  name: Clock
 
-two:
+one_2:
   ad_id: 1
-  name: MyString
+  name: Bycicle

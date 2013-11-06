@@ -3,19 +3,26 @@
 
   %div{class: "well", style: "padding: 8px 0;"}
     %ul{class: "nav nav-list"}
-      %li{class: "nav nav-list"} Меню
-
+      %li{class: "nav nav-list"}
+        %strong Меню
+      %li{class: "divider", style: "padding: 8px 0;"}
       %li{class: "active"}
         %a{title: '@title', href: '/'} Главная
-        - if user_signed_in?
+        - if can? :enter, :user_pages
           %li= link_to 'Профиль', edit_user_registration_path
           %li= link_to 'Мои объявления', ads_path
           %li
             %a{title: '@title', href: '#'} Настройки
           %li= link_to 'Выход', destroy_user_session_path, method: :delete
-        - else
+        - if can? :enter, :admin_zone
+          %li= link_to 'Управление пользователями', manage_users_path
+          %li= link_to 'Управление типами', manage_types_path
+          %li= link_to 'Управление Объявлениями', manage_ads_path
+          %li= link_to 'Выход', destroy_user_session_path, method: :delete
+        - if can? :enter, :reg_block
           %li= link_to 'Регистрация', new_user_registration_path
           %li= link_to 'Вход', new_user_session_path
+
         %li{class: "divider", style: "padding: 8px 0;"}
-        %li
-          %a{title: '@title', href: '#'} Помощь
+
+

@@ -1,0 +1,2 @@
+module ManageAdsHelper
+end

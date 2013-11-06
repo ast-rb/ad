@@ -1,0 +1,2 @@
+module ManageTypesHelper
+end

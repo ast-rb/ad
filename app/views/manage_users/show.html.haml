@@ -1,0 +1,16 @@
+%p#notice= notice
+
+%p
+  = "Name: "
+  = @manage_user.username
+%p   
+  = "Email: "
+  = @manage_user.email
+%p   
+  = "Date of registration: "
+  = @manage_user.email
+
+%br
+= link_to 'Edit', edit_manage_user_path(@manage_user)
+\|
+= link_to 'Back', manage_users_path

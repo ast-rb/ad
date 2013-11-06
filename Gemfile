@@ -22,6 +22,16 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+group :test do
+  gem 'shoulda'
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+  gem 'guard-rspec'
+  gem 'spork'
+end
+
+
+
 gem 'jquery-rails'
 
 gem 'will_paginate', '~> 3.0'
@@ -30,10 +40,10 @@ gem 'will_paginate-bootstrap'
 gem 'devise'
 gem 'haml-rails'
 gem 'state_machine'
-
 gem 'paperclip'
 gem 'nested_form'
 
+gem  'cancan'
 
 
 # To use ActiveModel has_secure_password

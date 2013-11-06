@@ -1,0 +1,13 @@
+= simple_form_for(@manage_user, url: manage_user_path(@manage_user), html: { method: :put }) do |f|
+  = f.error_notification
+  %div
+    = f.label :username
+    = f.email_field :username
+    %br
+    = f.label :email
+    = f.email_field :email
+    %br
+    = f.label :role
+    = collection_select(:role, :role_id, Role.all, :id, :name)
+    %br
+    = f.button :submit

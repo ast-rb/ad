@@ -1,0 +1,17 @@
+%h1 Listing manage_types
+
+%table.table
+  %tr
+    %th Type ad
+    %th
+    %th
+    %th
+
+  - @manage_types.each do |manage_type|
+    %tr
+      %td= 	manage_type.name
+      %td= link_to 'Destroy', manage_type_path(manage_type), :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Manage type', new_manage_type_path

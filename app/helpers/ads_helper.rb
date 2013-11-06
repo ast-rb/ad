@@ -7,7 +7,7 @@ def state_edit_ad(ad)
 end
 
 def state_destroy_ad(ad)
-  unless ad.status == 'archive'
+  unless ad.state == 'archive'
     link_to 'Destroy', ad, confirm: 'Are you sure?', method: :delete
   end
 end

@@ -1,0 +1,17 @@
+%h1 Listing manage_ads
+
+%table
+  %tr
+    %th
+    %th
+    %th
+
+  - @manage_ads.each do |manage_ad|
+    %tr
+      %td= link_to 'Show', manage_ad
+      %td= link_to 'Edit', edit_manage_ad_path(manage_ad)
+      %td= link_to 'Destroy', manage_ad, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Manage ad', new_manage_ad_path

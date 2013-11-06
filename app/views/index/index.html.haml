@@ -8,11 +8,11 @@
 
 .row
   - @ads.each do |ad|
-    %div{class: "itemad span9 well"}
+    %div{class: "itemad span8 well"}
       = link_to ad.title, show_path(ad)
       .row
-        %small{class: "span3"} Автор: #{ad.user.email}
-        %small{class: "span3"} Тип: #{ad.type.name}
+        %small{class: "span2"} Автор: #{ad.user.username}
+        %small{class: "span2"} Тип: #{ad.type.name}
         %small{class: "span3"} Дата: #{ad.created_at}
 
 

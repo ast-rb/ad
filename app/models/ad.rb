@@ -1,11 +1,12 @@
 class Ad < ActiveRecord::Base
-  # FIX: Dangerous
-  attr_accessible :title, :body, :type_id, :user_id,
+  # FIX: Dangerous and clear
+  attr_accessible :title, :body, :type_id, :user_id, :type,
                   :state, :state_event, :status, :name,
                   :images, :images_attributes, :_destroy
   attr_accessor :_destroy
 
-  #validates_presence_of :name, :state
+
+  validates :title, :body, :state, presence: true
 
   has_many :images
   belongs_to :type

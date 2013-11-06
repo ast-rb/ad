@@ -1,9 +1,11 @@
 %div
+    %div#image
     = f.label :name, 'Image name'
     %br
     = f.text_field :name
     %br
-    = f.file_field :photo
+    = f.file_field :photo, thumbnail: 'image'
+
     %br
     = f.link_to_remove "remove"
 

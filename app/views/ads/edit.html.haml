@@ -6,7 +6,6 @@
   = f.association :type, as: :radio_buttons
   = f.label :state
   = f.collection_select :state_event, @ad.state_transitions, :event, :human_to_name, :include_blank => @ad.human_state_name
-  =#TODO: Добавить возможнсть добавлять изображения
   =#TODO: Добавить скрипт подгрузки картинок
 
 

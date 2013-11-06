@@ -7,6 +7,9 @@ Advertisement::Application.routes.draw do
   root :to => 'index#index'
   get 'show/(:id)', to: 'index#show', :as => :show
   resources :ads
+  resources :manage_users
+  resources :manage_ads
+  resources :manage_types, only: [:index, :delete, :new, :destroy]
 
   # get "index/show"
   # get "index/index"
