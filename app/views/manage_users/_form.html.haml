@@ -8,6 +8,6 @@
     = f.email_field :email
     %br
     = f.label :role
-    = collection_select(:role, :role_id, Role.all, :id, :name)
+    = collection_select(:role, :id, Role.all, :id, :name)
     %br
     = f.button :submit

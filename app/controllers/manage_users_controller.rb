@@ -57,11 +57,13 @@ class ManageUsersController < ApplicationController
   # PUT /manage_users/1
   # PUT /manage_users/1.json
   def update
-    @manage_user = ManageUser.find(params[:id])
+    @manage_user = User.find(params[:id])
+    @role = Role.find(params[:role][:id])
+    @manage_user.role = @role
 
     respond_to do |format|
-      if @manage_user.update_attributes(params[:manage_user])
-        format.html { redirect_to @manage_user, notice: 'Manage user was successfully updated.' }
+      if @manage_user.update_attributes(params[:user])
+        format.html { redirect_to manage_users_path, notice: 'Manage user was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -73,7 +75,7 @@ class ManageUsersController < ApplicationController
   # DELETE /manage_users/1
   # DELETE /manage_users/1.json
   def destroy
-    @manage_user = ManageUser.find(params[:id])
+    @manage_user = User.find(params[:id])
     @manage_user.destroy
 
     respond_to do |format|

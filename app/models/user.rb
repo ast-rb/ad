@@ -11,22 +11,23 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :username
 
-  has_many :users_roles, dependent: :destroy
-  has_many :roles, through: :users_roles
+  belongs_to :role
   has_many :ads, dependent: :destroy
 
   # Может объединить?
+  # Добавить валидацию на длину
   validates :username, presence: true, uniqueness: true
   validates :email, presence: true, uniqueness: true
 
   # Правильно ли здесь использовать знак вопроса?
   def role?(role)
-    self.roles.find_by_name(role)
+    return false unless self.role  # нужно ли
+    self.role.name.to_sym == (role)
   end
 
   private
     def create_role
-      self.roles << Role.find_by_name(:user)  #if ENV["RAILS_ENV"] != 'test'
+      self.role = Role.find_by_name(:user)  #if ENV["RAILS_ENV"] != 'test'
     end
 
 end

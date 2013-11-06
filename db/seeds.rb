@@ -1,11 +1,4 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
- # TODO: Переделать под attr_access
+# TODO: Переделать под attr_access
 puts 'Loading seed data now....'
 
 Role.create(:name => "admin")
@@ -14,11 +7,12 @@ puts 'Roles added'
 
 u1 = User.create(username: 'test1', email: 'test1@gmail.com', password: 'megapassword')
 u2 = User.create(username: 'test2', email: 'test2@gmail.com', password: 'megapassw')
-User.create(username: 'admin', email: 'admin@gmail.com', password: 'adminpassw')
+admin = User.create(username: 'admin', email: 'admin@gmail.com', password: 'adminpassw')
 
-User.find_by_email("admin@gmail.com").roles << Role.find_by_name("admin")
-User.find_by_email("test1@gmail.com").roles << Role.find_by_name("user")
-User.find_by_email("test2@gmail.com").roles << Role.find_by_name("user")
+admin.role = Role.find_by_name("admin")
+admin.save!
+#User.find_by_email("test1@gmail.com").roles << Role.find_by_name("user")
+#User.find_by_email("test2@gmail.com").roles << Role.find_by_name("user")
 puts 'Users and admin added'
 
 t1 = Type.create( name: 'Buy')

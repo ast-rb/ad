@@ -7,7 +7,9 @@
     %th
       = 'Name'
     %th
-      ="Email"
+      = 'Email'
+    %th
+      = 'Role'
     %th
     %th
     %th
@@ -15,14 +17,13 @@
   - @manage_users.each do |manage_user|
     %tr
       %td
-
         = manage_user.id
       %td
-     
         = manage_user.username
       %td
-      
         = manage_user.email
+      %td
+        = manage_user.role.name
       %td
       
         = link_to 'Show', manage_user_path(manage_user)

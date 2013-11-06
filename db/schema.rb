@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131104175118) do
+ActiveRecord::Schema.define(:version => 20131106091206) do
 
   create_table "ads", :force => true do |t|
     t.string   "title"
@@ -62,19 +62,10 @@ ActiveRecord::Schema.define(:version => 20131104175118) do
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
     t.string   "username"
+    t.integer  "role_id"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
-
-  create_table "users_roles", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "role_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  add_index "users_roles", ["role_id"], :name => "index_users_roles_on_role_id"
-  add_index "users_roles", ["user_id"], :name => "index_users_roles_on_user_id"
 
 end
