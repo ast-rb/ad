@@ -4,7 +4,7 @@ FactoryGirl.define do
   end
 
   factory :role_admin do
-      name 'admin'
+    name 'admin'
   end
 
 

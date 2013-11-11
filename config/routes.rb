@@ -6,10 +6,19 @@ Advertisement::Application.routes.draw do
   #resources :index, :only => [:index, :show]
   root :to => 'index#index'
   get 'show/(:id)', to: 'index#show', :as => :show
+  post :search, to: 'index#index', as: :search
+  get :search, to: 'index#index'
+
   resources :ads
-  resources :manage_users
-  resources :manage_ads
-  resources :manage_types, only: [:index, :delete, :new, :destroy]
+  resources :manage_users, except: [:new, :create]
+  
+  #resources :manage_ads, only: [:index, :destroy, :edit, :update,  ] do
+  resources :manage_ads, except: [:show, :new, :create] do
+    collection { post :search, to: 'manage_ads#index' }
+    collection { get :search, to: 'manage_ads#index' }
+  end
+  
+  resources :manage_types, only: [:index, :new, :destroy, :create]
 
   # get "index/show"
   # get "index/index"

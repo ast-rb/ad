@@ -1,7 +1,6 @@
-= simple_form_for(@manage_ad) do |f|
+= simple_form_for(@manage_ad, url: manage_ad_path(@manage_ad), html: { method: :put }) do |f|
   = f.error_notification
-
-  .form-inputs
-
-  .form-actions
-    = f.button :submit
+  
+  = f.collection_select :state_event, @manage_ad.state_transitions, :event, :human_to_name, :include_blank => @manage_ad.human_state_name
+  
+  = f.button :submit

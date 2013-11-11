@@ -28,3 +28,8 @@ body {
 .remember{
     display: inline;
 }
+
+div.field select { 
+   width: 170px !important
+}
+

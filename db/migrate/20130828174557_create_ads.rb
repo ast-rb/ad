@@ -5,5 +5,7 @@ class CreateAds < ActiveRecord::Migration
       t.string :body
       t.timestamps
     end
+	add_index :ads, :title
+
   end
 end

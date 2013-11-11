@@ -7,13 +7,23 @@
   %h3 Объявления:
 
 .row
+  %div{class: "itemad span8 well"}
+    %b Search and sort:
+    %br Sort for:   
+    = sort_link @search, :title, "Title"  
+    = sort_link @search, :updated_at, "Data"
+    = sort_link @search, :type_name, "Type" 
+    %br
+    = render "search_field", locals: {search: @search}
+.row
   - @ads.each do |ad|
     %div{class: "itemad span8 well"}
       = link_to ad.title, show_path(ad)
       .row
         %small{class: "span2"} Автор: #{ad.user.username}
         %small{class: "span2"} Тип: #{ad.type.name}
-        %small{class: "span3"} Дата: #{ad.created_at}
+        %small{class: "span3"} Дата: #{ad.updated_at}
+
 
 
 = will_paginate @ads, renderer: BootstrapPagination::Rails, previous_label: "Предыдущая", next_label: 'Следующая'

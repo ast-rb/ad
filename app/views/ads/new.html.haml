@@ -4,7 +4,15 @@
   = f.input :title
   = f.input :body, as: :text, input_html: { class: 'input-xxlarge' }
   = f.association :type, as: :radio_buttons
+  %br
   = f.fields_for :images
-  = f.button :submit, label: "Создать"
+  %br
+  = f.link_to_add "Add image", :images
+  %br
+  %br
+  %br
+  %div
+    %br
+    = f.button :submit, label: "Создать"
 
 = link_to 'Back', ads_path

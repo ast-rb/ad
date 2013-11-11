@@ -4,5 +4,6 @@ class CreateTypes < ActiveRecord::Migration
       t.string :name
       t.timestamps
     end
+    
   end
 end

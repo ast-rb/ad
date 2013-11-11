@@ -30,7 +30,7 @@ ad = Ad.new(
 	shows you how to hold onto all the power and flexibility of JavaScript
 	while writing clearer, cleaner, and safer code.
       </p>},
-  status: 'draft',
+  state: 'draft',
   type: t1,
 )
 ad.user = u1
@@ -47,7 +47,7 @@ ad = Ad.new(
 	shows you how to hold onto all the power and flexibility of JavaScript
 	while writing clearer, cleaner, and safer code.
       </p>},
-  status: 'draft',
+  state: 'draft',
   type: t2,
 )
 ad.user = u2
@@ -64,7 +64,7 @@ ad = Ad.new(
 	shows you how to hold onto all the power and flexibility of JavaScript
 	while writing clearer, cleaner, and safer code.
       </p>},
-  status: 'draft',
+  state: 'draft',
   type: t1,
 )
 ad.user = u1
@@ -80,7 +80,7 @@ ad = Ad.new(
 	shows you how to hold onto all the power and flexibility of JavaScript
 	while writing clearer, cleaner, and safer code.
       </p>},
-  status: 'draft',
+  state: 'draft',
   type: t2,
 )
 ad.user = u2
@@ -96,7 +96,7 @@ ad = Ad.new(
 	shows you how to hold onto all the power and flexibility of JavaScript
 	while writing clearer, cleaner, and safer code.
       </p>},
-  status: 'draft',
+  state: 'draft',
   type: t1,
 )
 ad.user = u1
@@ -115,7 +115,7 @@ Ad.create(title: 'Ad-6',
       </p>},
   type: t2,
   user_id: u2,
-  status: 'rejected'
+  state: 'rejected'
 )
 
 Ad.create(title: 'Ad-7',
@@ -129,7 +129,7 @@ Ad.create(title: 'Ad-7',
       </p>},
   type: t1,
   user_id: u1,
-  status: 'approved'
+  state: 'approved'
 )
 
 Ad.create(title: 'Ad-8',
@@ -143,7 +143,7 @@ Ad.create(title: 'Ad-8',
       </p>},
   type: t2,
   user_id: u2,
-  status: 'approved'
+  state: 'approved'
 )
 
 Ad.create(title: 'Ad-9',
@@ -157,7 +157,7 @@ Ad.create(title: 'Ad-9',
       </p>},
   type: t1,
   user_id: u1,
-  status: 'published'
+  state: 'published'
 )
 
 Ad.create(title: 'Ad-10',
@@ -171,7 +171,7 @@ Ad.create(title: 'Ad-10',
       </p>},
   type: t2,
   user_id: u2,
-  status: 'published'
+  state: 'published'
 )
 
 Ad.create(title: 'Ad-11',
@@ -185,7 +185,7 @@ Ad.create(title: 'Ad-11',
       </p>},
   type: t1,
   user_id: u1,
-  status: 'archive'
+  state: 'archive'
 )
 
 Ad.create(title: 'Ad-12',
@@ -199,7 +199,7 @@ Ad.create(title: 'Ad-12',
       </p>},
   type: t2,
   user_id: u2,
-  status: 'archive'
+  state: 'archive'
 )
 
 
@@ -214,7 +214,7 @@ Ad.create(title: 'Ad-13',
       </p>},
   type: t1,
   user_id: u1,
-  status: 'archive'
+  state: 'archive'
 )
 
 
@@ -229,7 +229,7 @@ Ad.create(title: 'Ad-14',
       </p>},
   type: t2,
   user_id: u2,
-  status: 'archive'
+  state: 'archive'
 )
 
 
@@ -244,6 +244,6 @@ Ad.create(title: 'Ad-15',
       </p>},
   type: t1,
   user_id: u1,
-  status: 'archive'
+  state: 'archive'
 )
 puts 'Ads added'

@@ -8,6 +8,8 @@
       %p= image_tag image.photo.url(:mini) if image.photo?
       %p= image.name
     %br
-    = link_to 'Edit', edit_ad_path(@ad)
-    |
+    
     = link_to 'Back', ads_path
+    |
+    = state_edit_ad(@ad)
+

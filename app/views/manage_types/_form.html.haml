@@ -1,7 +1,7 @@
-= simple_form_for(@manage_type) do |f|
+= simple_form_for(@manage_type, url: manage_types_path, html: { method: :post }) do |f|
   = f.error_notification
-
-  .form-inputs
-
-  .form-actions
+  %div
+    = f.label :name
+    = f.email_field :name
+    %br
     = f.button :submit

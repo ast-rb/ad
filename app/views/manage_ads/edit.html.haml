@@ -1,7 +1,19 @@
-%h1 Editing manage_ad
+%h3 Editing ad
+
+.row
+  %div{class: "itemad span9 well"}
+    %h1= @manage_ad.title
+    %p= @manage_ad.body.html_safe
+
+
+    - for image in @manage_ad.images
+      %p= image_tag image.photo.url(:mini) if image.photo?
+      %p= image.name
+    %br
+    %hr
+
+%h3 Manage
 
 = render 'form'
 
-= link_to 'Show', @manage_ad
-\|
 = link_to 'Back', manage_ads_path

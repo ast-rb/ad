@@ -10,8 +10,13 @@
   = @manage_user.email
 %p   
   %b
+    = "Role: "
+  = @manage_user.role.name
+%p   
+  %b
     = "Date of registration: "
-  = @manage_user.email
+  = @manage_user.created_at
+
 
 %br
 = link_to 'Edit', edit_manage_user_path(@manage_user)

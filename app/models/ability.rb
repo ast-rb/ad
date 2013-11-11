@@ -9,6 +9,15 @@ class Ability
     can :enter, :user_pages if user.role? :user
     can :enter, :admin_zone if user.role? :admin
 
+    if  user.role? :admin
+      can :manage, :manage_type
+      can :manage, :ManageUser
+      can :manage, :ManageAd
+    end
+
+
+
+
     # Define abilities for the passed in user here. For example:
     #
     #   user ||= User.new # guest user (not logged in)

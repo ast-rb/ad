@@ -7,7 +7,8 @@
     = f.label :email
     = f.email_field :email
     %br
-    = f.label :role
-    = collection_select(:role, :id, Role.all, :id, :name)
+    - unless @manage_user == current_user
+      = f.label :role
+      = collection_select(:role, :id, Role.all, :id, :name)
     %br
     = f.button :submit

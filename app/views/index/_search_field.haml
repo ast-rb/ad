@@ -1,0 +1,17 @@
+%br
+= search_form_for(@search, url: search_path, method: :get) do |f|
+  = f.condition_fields do |c| 
+    %div.field
+      %p Sort:
+      = c.attribute_fields do |a|
+        = a.attribute_select associations: [:type]
+      = c.predicate_select({only: [:eq], compounds: false}) 
+      = c.value_fields do |v| 
+        = v.text_field :value 
+  
+  %div.field
+    = f.label :title_cont, "Find by title:" 
+    = f.text_field :title_cont
+ 
+  %div.action
+    = f.submit "Search"  

@@ -1,5 +1,6 @@
-%h1 Listing manage_users
+%h3 Listing users
 
+%p#notice= notice
 %table.table
   %tr
     %th
@@ -33,6 +34,4 @@
       %td
         = link_to 'Destroy', manage_user_path(manage_user), :method => :delete, :data => { :confirm => 'Are you sure?' }
 
-%br
 
-= link_to 'New Manage user', new_manage_user_path

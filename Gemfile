@@ -42,8 +42,9 @@ gem 'haml-rails'
 gem 'state_machine'
 gem 'paperclip'
 gem 'nested_form'
+gem 'cancan'
+gem 'ransack'
 
-gem  'cancan'
 
 
 # To use ActiveModel has_secure_password

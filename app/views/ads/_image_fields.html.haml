@@ -1,13 +1,16 @@
 %div
-    %div#image
-    = f.label :name, 'Image name'
-    %br
-    = f.text_field :name
-    %br
-    = f.file_field :photo, thumbnail: 'image'
-
-    %br
-    = f.link_to_remove "remove"
+  %div#image
+  %br
+  = f.label :name, 'Image name:'
+  = f.text_field :name
+  %br
+  = f.file_field :photo, thumbnail: 'image', onchange: 'previewImage(this,[256],4);'
+  %br
+  %div.imagePreview 
+   
+  %br
+  = f.link_to_remove "Remove image"
+  %br
 
 
 

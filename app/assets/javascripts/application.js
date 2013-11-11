@@ -16,4 +16,4 @@
 //= require_tree .
 // Loads all Bootstrap javascripts
 //= require bootstrap
-//= require thumbnail
+//= require html5.image.preview.min

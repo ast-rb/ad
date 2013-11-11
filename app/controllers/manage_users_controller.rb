@@ -1,86 +1,51 @@
-
 class ManageUsersController < ApplicationController
-  # GET /manage_users
-  # GET /manage_users.json
+  
+  before_filter :find_item, only: [:show, :edit, :destroy, :update] 
+  load_and_authorize_resource :class => :ManageUser
+
   def index
     @manage_users = User.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @manage_users }
-    end
   end
 
-  # GET /manage_users/1
-  # GET /manage_users/1.json
   def show
     @manage_user = User.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @manage_user }
-    end
   end
 
-  # GET /manage_users/new
-  # GET /manage_users/new.json
-  def new
-    @manage_user = User.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @manage_user }
-    end
-  end
-
-  # GET /manage_users/1/edit
   def edit
     @manage_user = User.find(params[:id])
   end
 
-  # POST /manage_users
-  # POST /manage_users.json
-  def create
-    @manage_user = ManageUser.new(params[:manage_user])
-
-    respond_to do |format|
-      if @manage_user.save
-        format.html { redirect_to @manage_user, notice: 'Manage user was successfully created.' }
-        format.json { render json: @manage_user, status: :created, location: @manage_user }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @manage_user.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # PUT /manage_users/1
-  # PUT /manage_users/1.json
   def update
     @manage_user = User.find(params[:id])
-    @role = Role.find(params[:role][:id])
-    @manage_user.role = @role
 
-    respond_to do |format|
-      if @manage_user.update_attributes(params[:user])
-        format.html { redirect_to manage_users_path, notice: 'Manage user was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @manage_user.errors, status: :unprocessable_entity }
-      end
+    unless @manage_user ==  current_user  
+      @role = Role.find(params[:role][:id])
+      @manage_user.role = @role 
     end
+
+    if @manage_user.update_attributes(params[:user])
+      redirect_to manage_users_path, notice: 'Manage user was successfully updated.' 
+    else
+      render action: "edit" 
+    end
+    
   end
 
-  # DELETE /manage_users/1
-  # DELETE /manage_users/1.json
   def destroy
     @manage_user = User.find(params[:id])
     @manage_user.destroy
 
-    respond_to do |format|
-      format.html { redirect_to manage_users_url }
-      format.json { head :no_content }
-    end
+    redirect_to action: "index"
   end
+
+
+
+
+  private
+
+    def find_item
+      @manage_user = User.where(id: params[:id]).first
+      redirect_to manage_users_path, notice: 'Not found page' unless @manage_user
+    end
+
 end

@@ -20,9 +20,11 @@ ActiveRecord::Schema.define(:version => 20131106091206) do
     t.datetime "updated_at", :null => false
     t.integer  "type_id"
     t.integer  "user_id"
-    t.string   "status"
     t.string   "state"
   end
+
+  add_index "ads", ["title"], :name => "index_ads_on_title"
+  add_index "ads", ["type_id"], :name => "index_ads_on_type_id"
 
   create_table "images", :force => true do |t|
     t.integer  "ad_id"
@@ -35,6 +37,8 @@ ActiveRecord::Schema.define(:version => 20131106091206) do
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
   end
+
+  add_index "images", ["ad_id"], :name => "index_images_on_ad_id"
 
   create_table "roles", :force => true do |t|
     t.string   "name"
@@ -67,5 +71,6 @@ ActiveRecord::Schema.define(:version => 20131106091206) do
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+  add_index "users", ["role_id"], :name => "index_users_on_role_id"
 
 end

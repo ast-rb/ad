@@ -1,17 +1,47 @@
-%h1 Listing manage_ads
+.page-header
+  %h3 Объявления:
+%p#notice= notice
 
-%table
+= search_form_for(@search, url: search_manage_ads_path, method: :post) do |f|
+  = f.condition_fields do |c| 
+    = render "condition_fields", f: c 
+
+  %div.field
+    = f.label :title_cont, "Find by title" 
+    = f.text_field :title_cont
+  %div.action
+    = f.submit "Search"
+
+%table.table
   %tr
+    %th 
+      = sort_link @search, :title, "Title"  
+    %th 
+      = sort_link @search, :updated_at, "Data"
     %th
+      = sort_link @search, :type_name, "Type"
+    %th 
+      = sort_link @search, :type_name, "State"
+    %th 
+      = "Author: "
     %th
     %th
 
   - @manage_ads.each do |manage_ad|
-    %tr
-      %td= link_to 'Show', manage_ad
-      %td= link_to 'Edit', edit_manage_ad_path(manage_ad)
-      %td= link_to 'Destroy', manage_ad, :method => :delete, :data => { :confirm => 'Are you sure?' }
+    %tr      
+      %td
+        = manage_ad.title
+      %td
+        = manage_ad.updated_at.to_s(:for_manage)
+      %td
+        = manage_ad.type.name
+      %td
+        = manage_ad.state
+      %td
+        = manage_ad.user.username
+      %td
+        = link_to 'Show', edit_manage_ad_path(manage_ad.id)
+      %td
+        = link_to 'Destroy', manage_ad_path(manage_ad.id), :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
-
-= link_to 'New Manage ad', new_manage_ad_path
