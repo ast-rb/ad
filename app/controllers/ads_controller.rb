@@ -3,7 +3,7 @@ class AdsController < ApplicationController
   before_filter :authenticate_user!
 
   def index
-    @ads = current_user.ads.all
+    @ads = current_user.ads.order('created_at DESC').all
   end
 
 
@@ -23,7 +23,7 @@ class AdsController < ApplicationController
     image = @ad.images.build
 
     # Возможно как то отрефакторить, но не совсем понимаю как.
-    redirect_to action: :index unless @ad && @ad.state == 'draft'
+    redirect_to action: :index unless @ad && (@ad.state == 'draft' || @ad.state == 'archive')
   end
 
 
@@ -52,7 +52,7 @@ class AdsController < ApplicationController
       redirect_to ads_path, notice: 'It is ad other user.' and return
     end 
 
-    unless params[:ad][:state_event] == '' or params[:ad][:state_event] == 'send_manager'
+    unless params[:ad][:state_event] == '' || params[:ad][:state_event] == 'send_manager' || 'return'
       redirect_to ads_path, notice: 'This state is denied.' and return
     end
 

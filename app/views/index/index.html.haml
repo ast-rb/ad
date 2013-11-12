@@ -1,11 +1,6 @@
-%ul{class: "breadcrumb"}
-  %li
-    %a{title: '@title', href: '#'} Главная
-    %span.divider= '/'
-
 .page-header
   %h3 Объявления:
-
+%p#notice= notice
 .row
   %div{class: "itemad span8 well"}
     %b Search and sort:
@@ -22,7 +17,7 @@
       .row
         %small{class: "span2"} Автор: #{ad.user.username}
         %small{class: "span2"} Тип: #{ad.type.name}
-        %small{class: "span3"} Дата: #{ad.updated_at}
+        %small{class: "span3"} Дата: #{ad.updated_at.to_s(:for_manage)}
 
 
 

@@ -14,10 +14,9 @@ class User < ActiveRecord::Base
   belongs_to :role
   has_many :ads, dependent: :destroy
 
-  # Может объединить?
-  # Добавить валидацию на длину
   validates :username, presence: true, uniqueness: true
   validates :email, presence: true, uniqueness: true
+
 
   # Правильно ли здесь использовать знак вопроса?
   def role?(role)

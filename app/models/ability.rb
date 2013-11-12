@@ -1,8 +1,6 @@
 class Ability
   include CanCan::Ability
 
-
-
   def initialize(user)
     user ||= User.new
     can :enter, :reg_block if user.new_record?
@@ -11,8 +9,8 @@ class Ability
 
     if  user.role? :admin
       can :manage, :manage_type
-      can :manage, :ManageUser
-      can :manage, :ManageAd
+      can :manage, :manage_user
+      can :manage, :manage_ad
     end
 
 

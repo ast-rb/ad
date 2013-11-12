@@ -30,9 +30,9 @@ ad = Ad.new(
 	shows you how to hold onto all the power and flexibility of JavaScript
 	while writing clearer, cleaner, and safer code.
       </p>},
-  state: 'draft',
   type: t1,
 )
+ad.state = 'draft'
 ad.user = u1
 ad.save!
 
@@ -47,9 +47,9 @@ ad = Ad.new(
 	shows you how to hold onto all the power and flexibility of JavaScript
 	while writing clearer, cleaner, and safer code.
       </p>},
-  state: 'draft',
-  type: t2,
+  type: t2
 )
+ad.state = 'draft'
 ad.user = u2
 ad.save!
 
@@ -64,9 +64,9 @@ ad = Ad.new(
 	shows you how to hold onto all the power and flexibility of JavaScript
 	while writing clearer, cleaner, and safer code.
       </p>},
-  state: 'draft',
-  type: t1,
+  type: t1
 )
+ad.state = 'draft'
 ad.user = u1
 ad.save!
 
@@ -80,14 +80,14 @@ ad = Ad.new(
 	shows you how to hold onto all the power and flexibility of JavaScript
 	while writing clearer, cleaner, and safer code.
       </p>},
-  state: 'draft',
-  type: t2,
+  type: t2
 )
+ad.state = 'draft'
 ad.user = u2
 ad.save!
 
 ad = Ad.new(
-  title: 'Ad-4',
+  title: 'Ad-5',
   body:
     %{<p>
         CoffeeScript is JavaScript done right. It provides all of JavaScript's
@@ -96,15 +96,16 @@ ad = Ad.new(
 	shows you how to hold onto all the power and flexibility of JavaScript
 	while writing clearer, cleaner, and safer code.
       </p>},
-  state: 'draft',
   type: t1,
 )
+ad.state = 'draft'
 ad.user = u1
 ad.save!
 
 
 
-Ad.create(title: 'Ad-6',
+ad = Ad.new(
+  title: 'Ad-6',
   body:
     %{<p>
         CoffeeScript is JavaScript done right. It provides all of JavaScript's
@@ -113,12 +114,14 @@ Ad.create(title: 'Ad-6',
 	shows you how to hold onto all the power and flexibility of JavaScript
 	while writing clearer, cleaner, and safer code.
       </p>},
-  type: t2,
-  user_id: u2,
-  state: 'rejected'
+  type: t2
 )
+ad.state = 'approved'
+ad.user = u2
+ad.save!
 
-Ad.create(title: 'Ad-7',
+ad = Ad.new(
+  title: 'Ad-7',
   body:
     %{<p>
         CoffeeScript is JavaScript done right. It provides all of JavaScript's
@@ -128,11 +131,13 @@ Ad.create(title: 'Ad-7',
 	while writing clearer, cleaner, and safer code.
       </p>},
   type: t1,
-  user_id: u1,
-  state: 'approved'
 )
+ad.state = 'approved'
+ad.user = u1
+ad.save!
 
-Ad.create(title: 'Ad-8',
+ad = Ad.new(
+    title: 'Ad-8',
   body:
     %{<p>
         CoffeeScript is JavaScript done right. It provides all of JavaScript's
@@ -142,11 +147,12 @@ Ad.create(title: 'Ad-8',
 	while writing clearer, cleaner, and safer code.
       </p>},
   type: t2,
-  user_id: u2,
-  state: 'approved'
 )
+ad.state = 'approved'
+ad.user = u1
+ad.save!
 
-Ad.create(title: 'Ad-9',
+ad = Ad.new(title: 'Ad-9',
   body:
     %{<p>
         CoffeeScript is JavaScript done right. It provides all of JavaScript's
@@ -156,25 +162,27 @@ Ad.create(title: 'Ad-9',
 	while writing clearer, cleaner, and safer code.
       </p>},
   type: t1,
-  user_id: u1,
+)
+ad.state = 'published'
+ad.user = u1
+ad.save!
+
+ad = Ad.new(title: 'Ad-10',
+  body:
+    %{<p>
+        CoffeeScript is JavaScript done right. It provides all of JavaScript's
+	functionality wrapped in a cleaner, more succinct syntax. In the first
+	book on this exciting new language, CoffeeScript guru Trevor Burnham
+	shows you how to hold onto all the power and flexibility of JavaScript
+	while writing clearer, cleaner, and safer code.
+      </p>},
+  type: t2,
   state: 'published'
 )
+ad.user = u1
+ad.save!
 
-Ad.create(title: 'Ad-10',
-  body:
-    %{<p>
-        CoffeeScript is JavaScript done right. It provides all of JavaScript's
-	functionality wrapped in a cleaner, more succinct syntax. In the first
-	book on this exciting new language, CoffeeScript guru Trevor Burnham
-	shows you how to hold onto all the power and flexibility of JavaScript
-	while writing clearer, cleaner, and safer code.
-      </p>},
-  type: t2,
-  user_id: u2,
-  state: 'published'
-)
-
-Ad.create(title: 'Ad-11',
+ad = Ad.new(title: 'Ad-11',
   body:
     %{<p>
         CoffeeScript is JavaScript done right. It provides all of JavaScript's
@@ -184,11 +192,12 @@ Ad.create(title: 'Ad-11',
 	while writing clearer, cleaner, and safer code.
       </p>},
   type: t1,
-  user_id: u1,
   state: 'archive'
 )
+ad.user = u1
+ad.save!
 
-Ad.create(title: 'Ad-12',
+ad = Ad.new(title: 'Ad-12',
   body:
     %{<p>
         CoffeeScript is JavaScript done right. It provides all of JavaScript's
@@ -198,12 +207,12 @@ Ad.create(title: 'Ad-12',
 	while writing clearer, cleaner, and safer code.
       </p>},
   type: t2,
-  user_id: u2,
   state: 'archive'
 )
+ad.user = u1
+ad.save!
 
-
-Ad.create(title: 'Ad-13',
+ad = Ad.new(title: 'Ad-13',
   body:
     %{<p>
         CoffeeScript is JavaScript done right. It provides all of JavaScript's
@@ -213,12 +222,12 @@ Ad.create(title: 'Ad-13',
 	while writing clearer, cleaner, and safer code.
       </p>},
   type: t1,
-  user_id: u1,
   state: 'archive'
 )
+ad.user = u1
+ad.save!
 
-
-Ad.create(title: 'Ad-14',
+ad = Ad.new(title: 'Ad-14',
   body:
     %{<p>
         CoffeeScript is JavaScript done right. It provides all of JavaScript's
@@ -228,12 +237,12 @@ Ad.create(title: 'Ad-14',
 	while writing clearer, cleaner, and safer code.
       </p>},
   type: t2,
-  user_id: u2,
   state: 'archive'
 )
+ad.user = u2
+ad.save!
 
-
-Ad.create(title: 'Ad-15',
+ad = Ad.new(title: 'Ad-15',
   body:
     %{<p>
         CoffeeScript is JavaScript done right. It provides all of JavaScript's
@@ -243,7 +252,9 @@ Ad.create(title: 'Ad-15',
 	while writing clearer, cleaner, and safer code.
       </p>},
   type: t1,
-  user_id: u1,
   state: 'archive'
 )
+ad.user = u1
+ad.save!
+
 puts 'Ads added'

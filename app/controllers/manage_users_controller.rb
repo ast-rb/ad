@@ -1,7 +1,7 @@
 class ManageUsersController < ApplicationController
   
-  before_filter :find_item, only: [:show, :edit, :destroy, :update] 
-  load_and_authorize_resource :class => :ManageUser
+  # before_filter :find_item, only: [:show, :edit, :destroy, :update]
+  authorize_resource :class => false
 
   def index
     @manage_users = User.all
@@ -43,9 +43,9 @@ class ManageUsersController < ApplicationController
 
   private
 
-    def find_item
-      @manage_user = User.where(id: params[:id]).first
-      redirect_to manage_users_path, notice: 'Not found page' unless @manage_user
-    end
+    #def find_item
+    #  @manage_user = User.where(id: params[:id]).first
+    #  redirect_to manage_users_path, notice: 'Not found page' unless @manage_user
+    #end
 
 end

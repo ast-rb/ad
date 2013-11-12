@@ -1,14 +1,15 @@
 .row
   %div{class: "itemad span9 well"}
-    %h1= @ad.title
-    %p= @ad.body.html_safe
-
+    %div
+      %h1= @ad.title
+      %p= @ad.body.html_safe
 
     - for image in @ad.images
-      %p= image_tag image.photo.url(:mini) if image.photo?
-      %p= image.name
+      %div.gal
+        %p= image_tag image.photo.url(:mini) if image.photo?
+        %p= image.name
     %br
-    
+    %div.clear
     = link_to 'Back', ads_path
     |
     = state_edit_ad(@ad)

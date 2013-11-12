@@ -2,7 +2,7 @@
 
 .row
   %div{class: "itemad span9 well"}
-    %h1= @manage_ad.title
+    %h3= @manage_ad.title
     %p= @manage_ad.body.html_safe
 
 
@@ -11,9 +11,8 @@
       %p= image.name
     %br
     %hr
-
-%h3 Manage
-
-= render 'form'
+    - if @manage_ad.state == 'new'
+      %h3 Manage:
+      = render 'form'
 
 = link_to 'Back', manage_ads_path

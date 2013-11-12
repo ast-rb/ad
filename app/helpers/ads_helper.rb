@@ -1,7 +1,7 @@
 module AdsHelper
 
 def state_edit_ad(ad)
-  if ad.state == 'draft'
+  if ad.state == 'draft' || ad.state == 'archive'
     link_to 'Edit', edit_ad_path(ad)
   end
 end

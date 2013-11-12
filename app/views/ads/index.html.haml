@@ -4,13 +4,15 @@
 
 %table.table
   %tr
-    %th
-    %th
-    %th
+    %th Date
+    %th Title
+    %th State
     %th
     %th
   - @ads.each do |ad|
     %tr
+    %td
+      = ad.updated_at.to_s(:for_manage)
     %td
       = ad.title
     %td

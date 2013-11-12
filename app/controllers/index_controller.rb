@@ -5,7 +5,7 @@ class IndexController < ApplicationController
     #@ads = Ad.order('created_at ASC').page(params[:page]).per_page(5)
 
     @search = Ad.with_type.search(params[:q])
-    @ads = @search.result.order('created_at ASC')
+    @ads = @search.result.order('created_at DESC').where('state = ?', 'published')
     @ads = @ads.page(params[:page]).per_page(5) #unless params["commit"] = "search"
     
     @search.build_condition if @search.conditions.empty? 

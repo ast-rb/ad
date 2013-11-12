@@ -44,7 +44,7 @@ gem 'paperclip'
 gem 'nested_form'
 gem 'cancan'
 gem 'ransack'
-
+gem 'whenever', :require => false
 
 
 # To use ActiveModel has_secure_password

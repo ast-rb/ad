@@ -33,3 +33,15 @@ div.field select {
    width: 170px !important
 }
 
+.gal {
+  /*float: left;*/
+  margin: 10px 0;
+}
+
+.clear {
+   /*clear: left;*/
+}
+
+.footer {
+  height: 75px;
+}

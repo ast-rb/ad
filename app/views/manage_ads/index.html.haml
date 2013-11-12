@@ -1,13 +1,14 @@
 .page-header
-  %h3 Объявления:
+  %h3 Listing ads:
 %p#notice= notice
 
 = search_form_for(@search, url: search_manage_ads_path, method: :post) do |f|
-  = f.condition_fields do |c| 
+  = 'Sort:'
+  = f.condition_fields do |c|
     = render "condition_fields", f: c 
 
   %div.field
-    = f.label :title_cont, "Find by title" 
+    = f.label :title_cont, "Find by title:"
     = f.text_field :title_cont
   %div.action
     = f.submit "Search"
@@ -21,7 +22,7 @@
     %th
       = sort_link @search, :type_name, "Type"
     %th 
-      = sort_link @search, :type_name, "State"
+      = sort_link @search, :state, "State"
     %th 
       = "Author: "
     %th

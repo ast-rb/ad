@@ -1,0 +1,10 @@
+%div.row
+  %div.itemad.span9.well
+    %h3= @ad.title
+    %p= @ad.body.html_safe
+    - for image in @ad.images
+      %div.gal
+        %p= image_tag image.photo.url(:mini) if image.photo?
+        %p= image.name
+    %p= link_to 'Вернутся к объявлениям', controller: :index
+

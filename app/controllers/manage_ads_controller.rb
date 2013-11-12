@@ -1,13 +1,11 @@
 class ManageAdsController < ApplicationController
-  
-  #load_and_authorize_resource :class => :ManageAd
-  
+  authorize_resource :class => false
 
   def index
     #@manage_ads = Ad.where("state != ?", 'draft')
     #@search = Ad.search(params[:q])
     @search = Ad.with_type.where("state != ?", 'draft').search(params[:q])
-    @manage_ads = @search.result
+    @manage_ads = @search.result.order('created_at DESC')
     @search.build_condition if @search.conditions.empty?
     @search.build_sort if @search.sorts.empty?
   end
@@ -21,16 +19,13 @@ class ManageAdsController < ApplicationController
     @manage_ad = Ad.find(params[:id])
   end
 
-
   def new
     @manage_ad = Ad.new
   end
 
-
   def edit
     @manage_ad = Ad.find(params[:id])
   end
-
 
   def create
     @manage_ad = Ad.new(params[:manage_ad])
@@ -54,10 +49,10 @@ class ManageAdsController < ApplicationController
   end
 
   def destroy
-    @manage_ad = ManageAd.find(params[:id])
+    @manage_ad = Ad.find(params[:id])
     @manage_ad.destroy
 
-    redirect_to manage_ads_url 
+    redirect_to manage_ads_url, notice: 'Ad was successfully deleted.'
   end
 
 end
