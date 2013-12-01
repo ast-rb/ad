@@ -1,30 +1,31 @@
 .page-header
-  %h3 Listing ads:
+  %h3
+    = t('manage_ads.header')
 %p#notice= notice
 
 = search_form_for(@search, url: search_manage_ads_path, method: :post) do |f|
-  = 'Sort:'
+  = t('manage_ads.sort')
   = f.condition_fields do |c|
     = render "condition_fields", f: c 
 
   %div.field
-    = f.label :title_cont, "Find by title:"
+    = f.label :title_cont, t('search_sort.find_by_header')
     = f.text_field :title_cont
   %div.action
-    = f.submit "Search"
+    = f.submit t('search_sort.submit')
 
 %table.table
   %tr
     %th 
-      = sort_link @search, :title, "Title"  
+      = sort_link @search, :title, t('search.title')
     %th 
-      = sort_link @search, :updated_at, "Data"
+      = sort_link @search, :updated_at, t('search.date')
     %th
-      = sort_link @search, :type_name, "Type"
+      = sort_link @search, :type_name, t('search.type')
     %th 
-      = sort_link @search, :state, "State"
+      = sort_link @search, :state, t('search.state')
     %th 
-      = "Author: "
+      = t('manage_ads.аuthor')
     %th
     %th
 
@@ -37,12 +38,12 @@
       %td
         = manage_ad.type.name
       %td
-        = manage_ad.state
+        = manage_ad.human_state_name
       %td
         = manage_ad.user.username
       %td
-        = link_to 'Show', edit_manage_ad_path(manage_ad.id)
+        = link_to t('manage_ads.edit'), edit_manage_ad_path(manage_ad.id)
       %td
-        = link_to 'Destroy', manage_ad_path(manage_ad.id), :method => :delete, :data => { :confirm => 'Are you sure?' }
+        = link_to t('views.link.destroy'), manage_ad_path(manage_ad.id), :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br

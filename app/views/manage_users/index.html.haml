@@ -1,37 +1,27 @@
-%h3 Listing users
+%h3= t('manage_users.header')
 
 %p#notice= notice
 %table.table
   %tr
-    %th
-      = 'ID'
-    %th
-      = 'Name'
-    %th
-      = 'Email'
-    %th
-      = 'Role'
+    %th= 'ID'
+    %th= t('manage_users.name')
+    %th= t('manage_users.email')
+    %th= t('manage_users.role')
     %th
     %th
     %th
 
   - @manage_users.each do |manage_user|
     %tr
+      %td= manage_user.id
+      %td= manage_user.username
+      %td= manage_user.email
+      %td= manage_user.role.name
       %td
-        = manage_user.id
+        = link_to t('views.link.show'), manage_user_path(manage_user)
       %td
-        = manage_user.username
+        = link_to t('views.link.edit'), edit_manage_user_path(manage_user)
       %td
-        = manage_user.email
-      %td
-        = manage_user.role.name
-      %td
-      
-        = link_to 'Show', manage_user_path(manage_user)
-      %td
-      
-        = link_to 'Edit', edit_manage_user_path(manage_user)
-      %td
-        = link_to 'Destroy', manage_user_path(manage_user), :method => :delete, :data => { :confirm => 'Are you sure?' }
+        = link_to t('views.link.destroy'), manage_user_path(manage_user), :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 

@@ -1,18 +1,16 @@
 module AdsHelper
 
-def state_edit_ad(ad)
-  if ad.state == 'draft' || ad.state == 'archive'
-    link_to 'Edit', edit_ad_path(ad)
+  def state_edit_ad(ad)
+    if ad.state == 'draft' || ad.state == 'archive'
+      link_to t('link.edit'), edit_ad_path(ad)
+    end
   end
-end
 
-def state_destroy_ad(ad)
-  unless ad.state == 'archive'
-    link_to 'Destroy', ad, confirm: 'Are you sure?', method: :delete
+  def state_destroy_ad(ad)
+    unless ad.state == 'archive'
+      link_to t('link.destroy'), ad, confirm: 'Are you sure?', method: :delete
+    end
   end
-end
-
-
 
 
 end

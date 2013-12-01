@@ -1,29 +1,24 @@
-%h3 Listing ads
+%h3= t('user_ads.header')
 
 %p#notice= notice
 
 %table.table
   %tr
-    %th Date
-    %th Title
-    %th State
+    %th= t('table.date')
+    %th= t('table.title')
+    %th= t('table.state')
+    %th
     %th
     %th
   - @ads.each do |ad|
     %tr
-    %td
-      = ad.updated_at.to_s(:for_manage)
-    %td
-      = ad.title
-    %td
-      = ad.state
-    %td
-      = link_to 'Show', ad
-    %td
-      = state_edit_ad(ad)
-    %td
-      = state_destroy_ad(ad)
+      %td= ad.updated_at.to_s(:for_manage)
+      %td= ad.title
+      %td= ad.state
+      %td= link_to t('link.show'), ad
+      %td= state_edit_ad(ad)
+      %td= state_destroy_ad(ad)
 
 %br
 
-= link_to 'New Ad', new_ad_path
+= link_to t('views.user_ads.new_ads'), new_ad_path

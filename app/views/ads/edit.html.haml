@@ -1,4 +1,4 @@
-%h3 Editing ad
+%h3= t('user_ads.update_ads')
 
 = simple_nested_form_for @ad, :html => {:multipart => true} do |f|
   = f.input :title
@@ -6,15 +6,14 @@
   = f.association :type, as: :radio_buttons
   = f.label :state
   = f.collection_select :state_event, @ad.state_transitions, :event, :human_to_name, :include_blank => @ad.human_state_name
-  =#TODO: Добавить скрипт подгрузки картинок
   %br
   = f.fields_for :images
-  = f.link_to_add "New field image", :images
+  = f.link_to_add t('user_ads.add_image'), :images
   %br
   %br
   %br
   = f.button :submit, label: "Редактировать"
 
-= link_to 'Back', ads_path
+= link_to t('views.link.back'), ads_path
 |
-= link_to 'Show', @ad
+= link_to t('views.link.show'), @ad

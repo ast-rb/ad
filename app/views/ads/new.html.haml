@@ -1,4 +1,4 @@
-%h1 New ad
+%h3= t('user_ads.new_ads')
 
 = simple_nested_form_for @ad, :html => {:multipart => true} do |f|
   = f.input :title
@@ -7,12 +7,12 @@
   %br
   = f.fields_for :images
   %br
-  = f.link_to_add "Add image", :images
+  = f.link_to_add t('user_ads.add_image'), :images
   %br
   %br
   %br
   %div
     %br
-    = f.button :submit, label: "Создать"
+    = f.button :submit
 
-= link_to 'Back', ads_path
+= link_to t('views.link.back'), ads_path

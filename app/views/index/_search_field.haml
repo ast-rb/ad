@@ -2,7 +2,7 @@
 = search_form_for(@search, url: search_path, method: :get) do |f|
   = f.condition_fields do |c| 
     %div.field
-      %p Sort:
+      %label= t('search_sort.find_by')
       = c.attribute_fields do |a|
         = a.attribute_select associations: [:type]
       = c.predicate_select({only: [:eq], compounds: false}) 
@@ -10,8 +10,8 @@
         = v.text_field :value 
   
   %div.field
-    = f.label :title_cont, "Find by title:" 
+    = f.label :title_cont, t('search_sort.find_by_header')
     = f.text_field :title_cont
  
   %div.action
-    = f.submit "Search"  
+    = f.submit t('main.search_sort.submit')

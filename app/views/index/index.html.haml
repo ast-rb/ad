@@ -1,13 +1,14 @@
-.page-header
-  %h3 Объявления:
+%h3= t('ads.header')
 %p#notice= notice
 .row
   %div{class: "itemad span8 well"}
-    %b Search and sort:
-    %br Sort for:   
-    = sort_link @search, :title, "Title"  
-    = sort_link @search, :updated_at, "Data"
-    = sort_link @search, :type_name, "Type" 
+    %b
+      = t("search_sort.header")
+    %br
+      = t("search_sort.sort_for")
+    = sort_link @search, :title, t("search.title")
+    = sort_link @search, :updated_at, t("search.date")
+    = sort_link @search, :type_name, t("search.type")
     %br
     = render "search_field", locals: {search: @search}
 .row
@@ -15,10 +16,12 @@
     %div{class: "itemad span8 well"}
       = link_to ad.title, show_path(ad)
       .row
-        %small{class: "span2"} Автор: #{ad.user.username}
-        %small{class: "span2"} Тип: #{ad.type.name}
-        %small{class: "span3"} Дата: #{ad.updated_at.to_s(:for_manage)}
-
+        %small{class: "span2"}
+          = "#{t('table.author')} #{ad.user.username}"
+        %small{class: "span2"}
+          = "#{t('table.type')} #{ad.type.name}"
+        %small{class: "span3"}
+          = "#{t('table.date')} #{ad.updated_at.to_s(:for_manage)}"
 
 
 = will_paginate @ads, renderer: BootstrapPagination::Rails, previous_label: "Предыдущая", next_label: 'Следующая'

@@ -1,4 +1,6 @@
 Advertisement::Application.routes.draw do
+
+
   resources :images
 
   devise_for :users, path_names: {sign_in: 'login', sign_out: 'logout'}
@@ -11,13 +13,13 @@ Advertisement::Application.routes.draw do
 
   resources :ads
   resources :manage_users, except: [:new, :create]
-  
+
   #resources :manage_ads, only: [:index, :destroy, :edit, :update,  ] do
   resources :manage_ads, except: [:show, :new, :create] do
     collection { post :search, to: 'manage_ads#index' }
     collection { get :search, to: 'manage_ads#index' }
   end
-  
+
   resources :manage_types, only: [:index, :new, :destroy, :create]
 
   # get "index/show"

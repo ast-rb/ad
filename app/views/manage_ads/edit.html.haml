@@ -1,4 +1,4 @@
-%h3 Editing ad
+%h3= t('manage_ads.editing_ad')
 
 .row
   %div{class: "itemad span9 well"}
@@ -12,7 +12,7 @@
     %br
     %hr
     - if @manage_ad.state == 'new'
-      %h3 Manage:
+      %h5= t('manage_ads.manage')
       = render 'form'
 
-= link_to 'Back', manage_ads_path
+= link_to t('views.link.back'), manage_ads_path

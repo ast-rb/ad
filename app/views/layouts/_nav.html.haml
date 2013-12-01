@@ -1,28 +1,31 @@
 .span3
-  %div{class: "well"}= "Вы вошли как: #{current_user.username}" if user_signed_in?
+  %div{class: "well"}= "#{t('views.user_bar.entered')} #{current_user.username}" if user_signed_in?
 
   %div{class: "well", style: "padding: 8px 0;"}
     %ul{class: "nav nav-list"}
-      %li{class: "nav nav-list"}
-        %strong Меню
+      %li{class: 'nav nav-list'}
+        %strong
+          = t('views.menu.header')
       %li{class: "divider", style: "padding: 8px 0;"}
       %li
-        %a{title: '@title', href: '/'} Main
+        %a{title: '@title', href: '/'}
+          = t('views.menu.main')
         - if can? :enter, :user_pages
-          %li= link_to 'Profile', edit_user_registration_path
-          %li= link_to 'My ads', ads_path
-          %li
-            %a{title: '@title', href: '#'} Settings
-          %li= link_to 'Exit', destroy_user_session_path, method: :delete
+          %li= link_to t('views.menu.profile'), edit_user_registration_path
+          %li= link_to t('views.menu.my_ads'), ads_path
+
+          %li= link_to t('views.menu.exit'), destroy_user_session_path, method: :delete
         - if can? :enter, :admin_zone
-          %li= link_to 'Users management', manage_users_path
-          %li= link_to 'Types management', manage_types_path
-          %li= link_to 'Ads management', manage_ads_path
-          %li= link_to 'Exit', destroy_user_session_path, method: :delete
+          %li= link_to t('views.menu.users_man'), manage_users_path
+          %li= link_to t('views.menu.types_man'), manage_types_path
+          %li= link_to t('views.menu.ads_man'), manage_ads_path
+          %li= link_to t('views.menu.exit'), destroy_user_session_path, method: :delete
         - if can? :enter, :reg_block
-          %li= link_to 'Sign up', new_user_registration_path
-          %li= link_to 'Sign in', new_user_session_path
+          %li= link_to t('views.menu.sign_up'), new_user_registration_path
+          %li= link_to t('views.menu.sign_in'), new_user_session_path
 
         %li{class: "divider", style: "padding: 8px 0;"}
+          %li= link_to_unless_current 'English', locale: 'en'
+          %li= link_to_unless_current 'Russian', locale: 'ru'
 
 

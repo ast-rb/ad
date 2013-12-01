@@ -2,5 +2,5 @@
   = f.error_notification
   
   = f.collection_select :state_event, @manage_ad.state_transitions, :event, :human_to_name, :include_blank => @manage_ad.human_state_name
-  
+  %br
   = f.button :submit

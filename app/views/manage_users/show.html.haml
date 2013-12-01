@@ -1,24 +1,20 @@
 %p#notice= notice
 
 %p
-  %b
-    = "Name: "
+  %b= t('manage_users.name')
   = @manage_user.username
 %p   
-  %b
-    = "Email: "
+  %b= t('manage_users.email')
   = @manage_user.email
 %p   
-  %b
-    = "Role: "
+  %b= t('manage_users.role')
   = @manage_user.role.name
 %p   
-  %b
-    = "Date of registration: "
+  %b= t('manage_users.date_reg')
   = @manage_user.created_at
 
 
 %br
-= link_to 'Edit', edit_manage_user_path(@manage_user)
+= link_to t('views.link.edit'), edit_manage_user_path(@manage_user)
 \|
-= link_to 'Back', manage_users_path
+= link_to t('views.link.back'), manage_users_path

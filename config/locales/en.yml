@@ -2,4 +2,76 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+
+  views:
+
+    menu:
+      header: 'Menu'
+      main: 'Main'
+
+      users_man: 'Users management'
+      types_man: 'Types management'
+      ads_man: 'Ads management'
+
+      profile: 'Profile'
+      my_ads: 'My ads'
+
+      sign_up: 'Sign up' # Регистрация
+      sign_in: 'Sing in'        # Вход
+      exit: 'Exit'
+
+    user_bar:
+      entered: 'You are entered as: '
+
+    link:
+      back: 'Back'
+      destroy: 'Destroy'
+      edit: 'Edit'
+      show: 'Show'
+
+
+
+
+
+  ads:
+    header: 'Ads:'
+
+  search_sort:
+    header: 'Search and sort: '
+    sort_for: 'Sort for: '
+    find_by: 'Find by: '
+    find_by_header: 'Find by header: '
+    submit: 'Search'
+
+
+  table:
+    author: 'Author:'
+    date: 'Date:'
+    type: 'Type:'
+    title: 'Title'
+    state: 'State'
+  search:
+    title: 'Title'
+    date: 'Date'
+    type: 'Type'
+    state: 'State'
+
+
+
+  types:
+    header: 'Listing types'
+    header_table: 'Type ad'
+    link_new: 'New Type'
+
+  manage_ads:
+    header: 'Listing ads:'
+    sort: 'Sort:'
+    author: 'Author'
+
+  manage_users:
+    header: 'Listing users'
+    id: 'ID:'
+    name: 'Name:'
+    email: 'Email:'
+    role: 'Role:'
+    date_reg: 'Date of registration: '
