@@ -3,7 +3,13 @@ class AdsController < ApplicationController
   before_filter :authenticate_user!
 
   def index
-    @ads = current_user.ads.order('created_at DESC').all
+    if params[:query].present?
+      @ads = Ad.search(params[:query], load: true)
+    else
+      @ads = current_user.ads.order('created_at DESC').all
+    end
+
+
   end
 
 

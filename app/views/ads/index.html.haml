@@ -2,6 +2,13 @@
 
 %p#notice= notice
 
+= form_tag(ads_path, method: :get) do |f|
+  = text_field_tag :query, params[:query]
+  = submit_tag 'Search', name:nil
+
+
+
+
 %table.table
   %tr
     %th= t('table.date')

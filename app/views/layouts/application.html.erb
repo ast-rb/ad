@@ -1,52 +1,53 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Advertisement</title>
-    <%= stylesheet_link_tag    "application", :media => "all" %>
-    <%= javascript_include_tag "application" %>
-    <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Advertisement</title>
+  <%= stylesheet_link_tag "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
 </head>
 
 <body>
-    <div class="navbar navbar-fixed-top">
-	    <div class="navbar-inner">
-		    <div class="container">
-			    <form class="navbar-search pull-right"> <!-- Специальные классы для формы поиска: .navbar-search у формы и .search-query у поля ввода -->
-				<!--    <input type="search" class="search-query" placeholder="Поиск">  Форма поиска -->
-			    </form>
-			    <a class="brand" href="/">Advertisement</a>
-			    <ul class="nav">
-				    <li><a href="/">Main</a></li>
-				    <li><a href="#">About</a></li>
-				    <li><a href="#">Gallery</a></li>
-				    <li><a href="#">Articles</a></li>
-				    <li><a href="#">Contacts</a></li>
-				    <li class="divider-vertical"></li> <!-- Вертикальный разделитель -->
-				    <!--
-                    <li class="dropdown"> <!-- Выпадающее меню -->
-                    <!-- <a href="#" class="dropdown-toggle" data-toggle="dropdown">Аккаунт <b class="caret"></b></a>
-			    	    <ul class="dropdown-menu">
-						    <li><a href="#">Войти</a></li>
-						    <li><a href="#">Зарегистрироваться</a></li>
-			    	    </ul>
-			  	    </li>
-                    -->
-		 	    </ul>
-		    </div>
-	    </div>
-    </div>
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
     <div class="container">
-	    <div class="row">
-            <%= render partial: 'layouts/nav' %>
-            <div class="span9">
-                <%= yield %>
-            </div>
-        </div>
-     </div>
+      <form class="navbar-search pull-right"> <!-- Специальные классы для формы поиска: .navbar-search у формы и .search-query у поля ввода -->
+        <input type="search" class="search-query" placeholder="Поиск"> <!-- Форма поиска -->
+      </form>
+      <a class="brand" href="/">Advertisement</a>
+      <ul class="nav">
+        <li><a href="/">Main</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Gallery</a></li>
+        <li><a href="#">Articles</a></li>
+        <li><a href="#">Contacts</a></li>
+        <li class="divider-vertical"></li>
+        <!-- Вертикальный разделитель -->
+        <!--
+        <li class="dropdown"> <!-- Выпадающее меню -->
+        <!-- <a href="#" class="dropdown-toggle" data-toggle="dropdown">Аккаунт <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+                <li><a href="#">Войти</a></li>
+                <li><a href="#">Зарегистрироваться</a></li>
+            </ul>
+          </li>
+        -->
+      </ul>
     </div>
-    <div class = "footer">
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <%= render partial: 'layouts/nav' %>
+    <div class="span9">
+      <%= yield %>
+    </div>
+  </div>
+</div>
+</div>
+<div class="footer">
 
-    </div>
+</div>
 </body>
 </html>

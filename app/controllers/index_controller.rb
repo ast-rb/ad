@@ -4,13 +4,12 @@ class IndexController < ApplicationController
     #@ads = Ad.where('ID > 1').page(params[:page]).per_page(5)
     #@ads = Ad.order('created_at ASC').page(params[:page]).per_page(5)
 
-    @search = Ad.with_type.search(params[:q])
+    @search = Ad.with_type.ransack(params[:q])
     @ads = @search.result.order('created_at DESC').where('state = ?', 'published')
     @ads = @ads.page(params[:page]).per_page(5) #unless params["commit"] = "search"
-    
-    @search.build_condition if @search.conditions.empty? 
-    @search.build_sort if @search.sorts.empty?
 
+    @search.build_condition if @search.conditions.empty?
+    @search.build_sort if @search.sorts.empty?
 
   end
 
