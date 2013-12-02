@@ -41,7 +41,8 @@ class ManageAdsController < ApplicationController
     @manage_ad = Ad.find(params[:id])
 
     if @manage_ad.update_attributes(params[:ad])
-       redirect_to  manage_ads_path, notice: 'Ad was successfully updated.' 
+      MessageForUser.send_status(@manage_ad).deliver
+      redirect_to  manage_ads_path, notice: 'Ad was successfully updated.'
     else
       render action: "edit" 
     end

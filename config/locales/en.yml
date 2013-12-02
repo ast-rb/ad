@@ -75,3 +75,10 @@ en:
     email: 'Email:'
     role: 'Role:'
     date_reg: 'Date of registration: '
+
+  mail:
+    greeting: Hello %{username}!
+    subject: "New status your ad."
+    status: Status your ads with name "%{title}" was changed.
+    new_status: New status is  "%{state}"
+    farewell: Sincerely company 'Ads'

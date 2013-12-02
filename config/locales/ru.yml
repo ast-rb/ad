@@ -101,7 +101,12 @@ ru:
         name: 'Тип:'
       image:
         name: 'Имя'
-
+      user:
+        email: 'Эл. почта'
+        username: 'Имя пользователя'
+        password: 'Пароль'
+        password_confirmation: 'Повторение пароля'
+        current_password: 'Введите текущий пароль'
     state_machines:
       states:
         draft: "Черновик"
@@ -116,5 +121,14 @@ ru:
     submit:
       create: "Создать"
       update: "Изменить"
+
+
+  mail:
+    greeting: Здравствуйте, %{username}!
+    subject: Новый статус у вашего объявления.
+    status: "Статус вашего объявления %{title} был изменен."
+    new_status: "Новый статус: %{state}."
+    farewell: С уважением, компания 'Ads'
+
 
 

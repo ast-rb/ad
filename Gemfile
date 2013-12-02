@@ -12,7 +12,7 @@ gem 'simple_form'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
+  gem 'sass-rails', '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'bootstrap-sass', '~> 2.3.2.2'
 
@@ -31,7 +31,6 @@ group :test do
 end
 
 
-
 gem 'jquery-rails'
 
 gem 'will_paginate', '~> 3.0'
@@ -45,6 +44,8 @@ gem 'nested_form'
 gem 'cancan'
 gem 'ransack'
 gem 'whenever', :require => false
+
+gem 'devise-i18n-views'
 
 
 # To use ActiveModel has_secure_password
