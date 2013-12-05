@@ -97,6 +97,7 @@ ru:
         state: 'Состояние:'
         type_id: 'Тип'
         updated_at: 'Дата обновления:'
+        type: 'Тип объявления:'
       type:
         name: 'Тип:'
       image:

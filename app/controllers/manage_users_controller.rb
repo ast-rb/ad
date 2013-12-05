@@ -1,7 +1,7 @@
 class ManageUsersController < ApplicationController
-  
-  # before_filter :find_item, only: [:show, :edit, :destroy, :update]
-  authorize_resource :class => false
+
+
+authorize_resource :class => false
 
   def index
     @manage_users = User.all
@@ -34,7 +34,6 @@ class ManageUsersController < ApplicationController
   def destroy
     @manage_user = User.find(params[:id])
     @manage_user.destroy
-
     redirect_to action: "index"
   end
 
