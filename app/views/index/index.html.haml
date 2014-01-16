@@ -13,14 +13,14 @@
     = render "search_field", locals: {search: @search}
 .row
   - @ads.each do |ad|
-    %div{class: "itemad span8 well"}
+    .itemad.span8.well
       = link_to ad.title, show_path(ad)
       .row
-        %small{class: "span2"}
+        %small.span2
           = "#{t('table.author')} #{ad.user.username}"
-        %small{class: "span2"}
+        %small.span2
           = "#{t('table.type')} #{ad.type.name}"
-        %small{class: "span3"}
+        %small.span3
           = "#{t('table.date')} #{ad.updated_at.to_s(:for_manage)}"
 
 

@@ -1,11 +1,13 @@
 source 'https://rubygems.org'
+ruby '1.9.3'
 
 gem 'rails', '3.2.5'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
+#gem 'sqlite3'
+gem 'pg'
 
 gem 'simple_form'
 
@@ -47,7 +49,10 @@ gem 'whenever', :require => false
 
 gem 'devise-i18n-views'
 
-gem 'tire'
+#gem 'tire'
+gem 'searchkick'
+gem 'jquery-ui-rails'
+gem 'rails3-jquery-autocomplete'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

@@ -1,12 +1,12 @@
 %div
-  %div#image
+  #image
   %br
   = f.label :name, t('user_ads.image_name')
   = f.text_field :name
   %br
   = f.file_field :photo, thumbnail: 'image', onchange: 'previewImage(this,[256],4);'
   %br
-  %div.imagePreview 
+  .imagePreview
    
   %br
   = f.link_to_remove t('user_ads.remove_image')

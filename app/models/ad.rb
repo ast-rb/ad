@@ -13,8 +13,12 @@ class Ad < ActiveRecord::Base
   belongs_to :user
   accepts_nested_attributes_for :images, :reject_if => lambda { |a| a[:name].blank? }, allow_destroy: true
 
-  include Tire::Model::Search
-  include Tire::Model::Callbacks
+  searchkick autocomplete: ['title']
+
+  #def self.mysearch
+  #  searchkick autocomplete: ['title']
+  #  Ad.search("do", autocomplete: true).map(&:title)
+  #end
 
 
   def self.with_type

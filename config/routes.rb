@@ -11,7 +11,11 @@ Advertisement::Application.routes.draw do
   post :search, to: 'index#index', as: :search
   get :search, to: 'index#index'
 
-  resources :ads
+  resources :ads do
+    collection { get :autocomplete }
+  end
+
+
   resources :manage_users, except: [:new, :create]
 
   #resources :manage_ads, only: [:index, :destroy, :edit, :update,  ] do

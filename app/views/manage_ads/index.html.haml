@@ -8,10 +8,10 @@
   = f.condition_fields do |c|
     = render "condition_fields", f: c 
 
-  %div.field
+  .field
     = f.label :title_cont, t('search_sort.find_by_header')
     = f.text_field :title_cont
-  %div.action
+  .action
     = f.submit t('search_sort.submit')
 
 %table.table

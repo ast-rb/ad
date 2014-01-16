@@ -1,7 +1,7 @@
 %br
 = search_form_for(@search, url: search_path, method: :get) do |f|
   = f.condition_fields do |c| 
-    %div.field
+    .field
       %label= t('search_sort.find_by')
       = c.attribute_fields do |a|
         = a.attribute_select associations: [:type]
@@ -9,9 +9,9 @@
       = c.value_fields do |v| 
         = v.text_field :value 
   
-  %div.field
+  .field
     = f.label :title_cont, t('search_sort.find_by_header')
     = f.text_field :title_cont
  
-  %div.action
+  .action
     = f.submit t('search_sort.submit')

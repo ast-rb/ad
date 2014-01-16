@@ -1,9 +1,0 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
-
-one_1:
-  ad_id: 1
-  name: Clock
-
-one_2:
-  ad_id: 1
-  name: Bycicle

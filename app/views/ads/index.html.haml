@@ -2,10 +2,17 @@
 
 %p#notice= notice
 
-= form_tag(ads_path, method: :get) do |f|
-  = text_field_tag :query, params[:query]
-  = submit_tag 'Search', name:nil
+= form_tag(ads_path, class: "form-inline", method: :get) do
+  .input-group.input-group-lg
+    - if params[:query].present?
+      .input-group-btn
+        = link_to "clear", ads_path, class: "btn btn-default"
+    = text_field_tag :query, params[:query], class: "form-control", id: "ads_search", autocomplete: "off"
+    .input-group-btn
+      = submit_tag "Search", class: "btn btn-primary"
 
+= form_tag do
+  = text_field_tag 'name', '', :autocomplete => autocomplete_ads_path
 
 
 

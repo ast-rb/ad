@@ -3,13 +3,15 @@ class AdsController < ApplicationController
   before_filter :authenticate_user!
 
   def index
-    if params[:query].present?
-      @ads = Ad.tire.search(params[:query], load: true)
-    else
-      @ads = current_user.ads.order('created_at DESC').all
-    end
+    #if params[:query].present?
+    #  @ads = Ad.search(params[:query], load: true)
+    #else
+    @ads = current_user.ads.order('created_at DESC').all
+    #end
+  end
 
-
+  def autocomplete
+    render json: Ad.search(params[:query], autocomplete: true).map(&:title)
   end
 
 
@@ -37,13 +39,13 @@ class AdsController < ApplicationController
 
     @ad = Ad.new(params[:ad])
     @ad.user_id = current_user.id
-   
+
     if @ad.save
       redirect_to @ad, notice: 'Ad was successfully created.'
     else
-      render action: "new" 
+      render action: "new"
     end
-   
+
   end
 
 
@@ -56,17 +58,17 @@ class AdsController < ApplicationController
 
     unless @ad.user_id == current_user.id
       redirect_to ads_path, notice: 'It is ad other user.' and return
-    end 
+    end
 
     unless params[:ad][:state_event] == '' || params[:ad][:state_event] == 'send_manager' || 'return'
       redirect_to ads_path, notice: 'This state is denied.' and return
     end
 
     if @ad.update_attributes(params[:ad])
-      redirect_to @ad, notice: 'Ad was successfully updated.' 
+      redirect_to @ad, notice: 'Ad was successfully updated.'
     else
-      render action: "edit" 
-    end   
+      render action: "edit"
+    end
   end
 
 
@@ -76,7 +78,7 @@ class AdsController < ApplicationController
     redirect_to ads_url
   end
 
-private
+  private
 
 
 end

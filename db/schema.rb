@@ -14,59 +14,60 @@
 ActiveRecord::Schema.define(:version => 20131106091206) do
 
   create_table "ads", :force => true do |t|
-    t.string   "title"
-    t.string   "body"
+    t.string "title"
+    t.text "body"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-    t.integer  "type_id"
-    t.integer  "user_id"
-    t.string   "state"
+    t.integer "type_id"
+    t.integer "user_id"
+    t.string "state"
   end
 
   add_index "ads", ["title"], :name => "index_ads_on_title"
   add_index "ads", ["type_id"], :name => "index_ads_on_type_id"
+  add_index "ads", ["user_id"], :name => "index_ads_on_user_id"
 
   create_table "images", :force => true do |t|
-    t.integer  "ad_id"
-    t.string   "name"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
-    t.string   "photo"
-    t.string   "photo_file_name"
-    t.string   "photo_content_type"
-    t.integer  "photo_file_size"
+    t.integer "ad_id"
+    t.string "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.string "photo"
+    t.string "photo_file_name"
+    t.string "photo_content_type"
+    t.integer "photo_file_size"
     t.datetime "photo_updated_at"
   end
 
   add_index "images", ["ad_id"], :name => "index_images_on_ad_id"
 
   create_table "roles", :force => true do |t|
-    t.string   "name"
+    t.string "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
   create_table "types", :force => true do |t|
-    t.string   "name"
+    t.string "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
   create_table "users", :force => true do |t|
-    t.string   "email",                  :default => "", :null => false
-    t.string   "encrypted_password",     :default => "", :null => false
-    t.string   "reset_password_token"
+    t.string "email", :default => "", :null => false
+    t.string "encrypted_password", :default => "", :null => false
+    t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          :default => 0
+    t.integer "sign_in_count", :default => 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
-    t.datetime "created_at",                             :null => false
-    t.datetime "updated_at",                             :null => false
-    t.string   "username"
-    t.integer  "role_id"
+    t.string "current_sign_in_ip"
+    t.string "last_sign_in_ip"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.string "username"
+    t.integer "role_id"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

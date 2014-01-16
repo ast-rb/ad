@@ -12,7 +12,11 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.ui.core
+//= require jquery.ui.widget
+//= require jquery.ui.position
 //= require jquery_nested_form
+//= require autocomplete-rails
 //= require_tree .
 // Loads all Bootstrap javascripts
 //= require bootstrap
