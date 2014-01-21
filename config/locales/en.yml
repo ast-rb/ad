@@ -2,39 +2,55 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-
   views:
-
-    menu:
-      header: 'Menu'
-      main: 'Main'
-
-      users_man: 'Users management'
-      types_man: 'Types management'
-      ads_man: 'Ads management'
-
-      profile: 'Profile'
-      my_ads: 'My ads'
-
-      sign_up: 'Sign up' # Регистрация
-      sign_in: 'Sing in'        # Вход
-      exit: 'Exit'
-
-    user_bar:
-      entered: 'You are entered as: '
-
-    link:
-      back: 'Back'
-      destroy: 'Destroy'
-      edit: 'Edit'
-      show: 'Show'
-
-
-
-
+  index:
+    index:
+      header: 'Ads:'
+      author: 'Author: %{user}'
+      type: '%{field} %{value}'
+      date: 'Date: %{date}'
 
   ads:
-    header: 'Ads:'
+   image_name: 'Название изображения:'
+   remove_image: 'Delete image'
+   add_image: 'Add image'
+   index:
+     header: 'Listing your ads:'
+     new_ads: 'Create new ad'
+     table:
+       date: 'Date:'
+   new:
+     header: 'Create new ad:'
+   edit:
+     header: 'Edit ad:'
+
+
+  manage_users:
+
+    date_reg: 'Date of registration: '
+    index:
+      header: 'Listing users'
+    edit:
+      header: 'Edit user'
+
+  manage_ads:
+    index:
+      header: 'Listing ads:'
+      sort: 'Sort:'
+      author: 'Author'
+      edit: 'Manage'
+    edit:
+      header: 'Управление объявлением:'
+      manage: 'Присвоить статус: '
+
+
+  manage_types:
+    index:
+       header: 'Listing types:'
+       header_table: 'Type ad:'
+       link_new: 'Create new type'
+    new:
+      header: 'Create new type:'
 
   search_sort:
     header: 'Search and sort: '
@@ -43,38 +59,41 @@ en:
     find_by_header: 'Find by header: '
     submit: 'Search'
 
-
-  table:
-    author: 'Author:'
-    date: 'Date:'
-    type: 'Type:'
-    title: 'Title'
-    state: 'State'
   search:
     title: 'Title'
     date: 'Date'
     type: 'Type'
-    state: 'State'
 
 
+  links:
+    back: 'Back'
+    confirm: "Are you sure?"
+    destroy: 'Destroy'
+    new: "Create"
+    edit: 'Edit'
+    show: 'Show'
 
-  types:
-    header: 'Listing types'
-    header_table: 'Type ad'
-    link_new: 'New Type'
+  menu:
+    header: 'Menu'
+    main: 'Main'
 
-  manage_ads:
-    header: 'Listing ads:'
-    sort: 'Sort:'
-    author: 'Author'
+    users_man: 'Users management'
+    types_man: 'Types management'
+    ads_man: 'Ads management'
 
-  manage_users:
-    header: 'Listing users'
-    id: 'ID:'
-    name: 'Name:'
-    email: 'Email:'
-    role: 'Role:'
-    date_reg: 'Date of registration: '
+    profile: 'Profile'
+    my_ads: 'My ads'
+
+    sign_up: 'Sign up' # Регистрация
+    sign_in: 'Sing in'        # Вход
+    exit: 'Exit'
+
+  user_bar:
+    entered: 'You are entered as: '
+
+  lang:
+    ru: 'Russian'
+    en: 'English'
 
   mail:
     greeting: Hello %{username}!
@@ -82,3 +101,25 @@ en:
     status: Status your ads with name "%{title}" was changed.
     new_status: New status is  "%{state}"
     farewell: Sincerely company 'Ads'
+
+  activerecord:
+    attributes:
+      ad:
+        title: 'Title:'
+        body:  'Body:'
+        state: 'State:'
+        type_id: 'Type:'
+        updated_at: 'Date:'
+        type: 'Type ad:'
+
+      type:
+        name: 'Type:'
+
+      user:
+        email: 'Email:'
+        username: 'Name:'
+        create_at: 'Date of registration:'
+        role: 'Role:'
+
+      role:
+        name: 'Role:'

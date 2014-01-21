@@ -3,111 +3,110 @@
 
 ru:
   views:
+  index:
+    index:
+      header: 'Объявления:'
 
-    menu:
-      header: 'Меню'
-      main: 'Главная'
+      #sort_for: 'Сортировать по:'
+      #find_by: "Поиск по "
+      #find_by_header: "Поиск по заголовку:"
+      #submit: "Искать"
 
-      users_man: 'Управление польз.'
-      types_man: 'Управление типами'
-      ads_man: 'Управление объявлениями'
+      author: 'Автор: %{user}'
+      type: '%{field} %{value}'
+      date: 'Дата: %{date}'
 
-      profile: 'Профиль'
-      my_ads: 'Мои объявления'
+  ads:
+   image_name: 'Название изображения:'
+   remove_image: 'Удалить изображение'
+   add_image: 'Добавить изображение'
+   index:
+     header: 'Список ваших объявлений'
+     new_ads: 'Создать новое объявление'
+     table:
+       date: 'Дата:'
+   new:
+     header: 'Создать новое объявление:'
+   edit:
+     header: 'Редактировать объявление:'
 
-      sign_up: 'Регистрация' # Регистрация
-      sign_in: 'Вход'        # Вход
-      exit: 'Выход'
 
-    user_bar:
-      entered: 'Вы вошли как: '
+  manage_users:
+    #name: 'Имя:'
+    #email: 'Эл. почта:'
+    #role: 'Роль:'
+    date_reg: 'Дата регистрации: '
+    index:
+      header: 'Список пользователей:'
+    edit:
+      header: 'Редактирование пользователя'
 
-    link:
-      back: "Назад"
-      destroy: "Удалить"
-      edit: "Редактировать"
-      show: 'Просмотреть'
+  manage_ads:
+    index:
+      header: 'Список объявлений:'
+      sort: 'Сортировка:'
+      аuthor: 'Автор'
+      edit: 'Управление'
+    edit:
+      header: 'Управление объявлением:'
+      manage: 'Присвоить статус: '
+
+
+  manage_types:
+    index:
+       header: 'Список типов:'
+       header_table: 'Тип объявления:'
+       link_new: 'Создать новый тип'
+    new:
+      header: 'Создание нового типа'
 
 
   search_sort:
     header: 'Поиск и сортировка:'
     sort_for: 'Сортировать по:'
-    find_by: "Поиск по "
+    find_by: "Поиск по:"
     find_by_header: "Поиск по заголовку:"
     submit: "Искать"
 
   search:
-    title: 'Заголовок'
-    date: 'Дата'
-    type: 'Тип'
-    state: 'Состояние'
-
-  table:
-    author: 'Автор:'
-    date: 'Дата:'
-    type: 'Тип:'
-    title: 'Заголовок'
-    state: 'Состояние'
-
-  ads:
-    header: 'Объявления:'
-
-  types:
-    header: 'Список типов'
-    header_table: 'Тип объявления'
-    link_new: 'Создать новый тип'
-
-  manage_ads:
-    header: 'Список объявлений:'
-    sort: 'Сортировка:'
-    аuthor: 'Автор'
-    back: 'Вернутся к объявлениям'
-    editing_ad: 'Управление объявлением:'
-    manage: 'Присвоить статус: '
-    edit: 'Управление'
-
-
-  manage_users:
-    header: 'Список пользователей'
-    id: 'ИД:'
-    name: 'Имя:'
-    email: 'Эл. почта:'
-    role: 'Роль:'
-    date_reg: 'Дата регистрации: '
-
-  user_ads:
-    header: 'Список ваших объявлений:'
-    new_ads: 'Создать новое объявление'
-    update_ads: 'Редактировать объявление:'
-
-    image_name: 'Название изображения:'
-    remove_image: 'Удалить изображение'
-    add_image: 'Добавить изображение'
-
+    title: 'Заголовоку'
+    date: 'Дате'
+    type: 'Типу'
 
   activerecord:
     models:
       ad: 'Объявления'
       type: 'Типы'
       image: 'Изображения'
+      role: 'Роли'
+
     attributes:
       ad:
-        title: 'Название:'
+        title: 'Заголовок:'
         body:  'Текст объявления:'
         state: 'Состояние:'
-        type_id: 'Тип'
-        updated_at: 'Дата обновления:'
+        type_id: 'Тип:'
+        updated_at: 'Дата:'
         type: 'Тип объявления:'
+
       type:
         name: 'Тип:'
+
       image:
         name: 'Имя'
+
       user:
-        email: 'Эл. почта'
-        username: 'Имя пользователя'
+        email: 'Эл. почта:'
+        username: 'Имя:'
         password: 'Пароль'
         password_confirmation: 'Повторение пароля'
         current_password: 'Введите текущий пароль'
+        create_at: 'Дата регистрации:'
+        role: 'Роль:'
+
+      role:
+        name: 'Роль:'
+
     state_machines:
       states:
         draft: "Черновик"
@@ -117,12 +116,18 @@ ru:
         archive: 'В архиве'
 
 
-
   helpers:
     submit:
       create: "Создать"
       update: "Изменить"
 
+  links:
+    back: "Назад"
+    confirm: "Вы уверены?"
+    destroy: "Удалить"
+    new: "Создать"
+    edit: "Редактировать"
+    show: 'Просмотреть'
 
   mail:
     greeting: Здравствуйте, %{username}!
@@ -131,5 +136,25 @@ ru:
     new_status: "Новый статус: %{state}."
     farewell: С уважением, компания 'Ads'
 
+  menu:
+    header: 'Меню'
+    main: 'Главная'
 
+    profile: 'Профиль'
 
+    users_man: 'Управление польз.'
+    types_man: 'Управление типами'
+    ads_man: 'Управление объявлениями'
+
+    my_ads: 'Мои объявления'
+
+    sign_up: 'Регистрация' # Регистрация
+    sign_in: 'Вход'        # Вход
+    exit: 'Выход'
+
+  user_bar:
+    entered: 'Вы вошли как: '
+
+  lang:
+    ru: 'Русский'
+    en: 'Английский'

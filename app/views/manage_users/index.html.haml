@@ -1,12 +1,12 @@
-%h3= t('manage_users.header')
+%h3= t('.header')
 
 %p#notice= notice
 %table.table
   %tr
-    %th= 'ID'
-    %th= t('manage_users.name')
-    %th= t('manage_users.email')
-    %th= t('manage_users.role')
+    %th= 'ID:'
+    %th= User.human_attribute_name :username
+    %th= User.human_attribute_name :email
+    %th= Role.human_attribute_name :name
     %th
     %th
     %th
@@ -18,10 +18,10 @@
       %td= manage_user.email
       %td= manage_user.role.name
       %td
-        = link_to t('views.link.show'), manage_user_path(manage_user)
+        = link_to t('links.show'), manage_user_path(manage_user)
       %td
-        = link_to t('views.link.edit'), edit_manage_user_path(manage_user)
+        = link_to t('links.edit'), edit_manage_user_path(manage_user)
       %td
-        = link_to t('views.link.destroy'), manage_user_path(manage_user), :method => :delete, :data => { :confirm => 'Are you sure?' }
+        = link_to t('links.destroy'), manage_user_path(manage_user), :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 

@@ -1,20 +1,20 @@
 %p#notice= notice
 
 %p
-  %b= t('manage_users.name')
+  %b= User.human_attribute_name :username
   = @manage_user.username
 %p   
-  %b= t('manage_users.email')
+  %b= User.human_attribute_name :email
   = @manage_user.email
 %p   
-  %b= t('manage_users.role')
+  %b= Role.human_attribute_name :name
   = @manage_user.role.name
 %p   
-  %b= t('manage_users.date_reg')
+  %b= User.human_attribute_name :create_at
   = @manage_user.created_at
 
 
 %br
-= link_to t('views.link.edit'), edit_manage_user_path(@manage_user)
+= link_to t('links.edit'), edit_manage_user_path(@manage_user)
 \|
-= link_to t('views.link.back'), manage_users_path
+= link_to t('links.back'), manage_users_path

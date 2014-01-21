@@ -1,7 +1,7 @@
-%h3 Editing user
+%h3= t('.header')
 
 = render 'form'
 
-= link_to 'Show', manage_user_path(@manage_user)
+= link_to t('links.show'), manage_user_path(@manage_user)
 \|
-= link_to 'Back', manage_users_path
+= link_to t('links.back'), manage_users_path

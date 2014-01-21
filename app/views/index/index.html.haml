@@ -1,4 +1,4 @@
-%h3= t('ads.header')
+%h3= t('.header')
 %p#notice= notice
 .row
   %div{class: "itemad span8 well"}
@@ -17,11 +17,11 @@
       = link_to ad.title, show_path(ad)
       .row
         %small.span2
-          = "#{t('table.author')} #{ad.user.username}"
+          = t('.author', user: ad.user.username)
         %small.span2
-          = "#{t('table.type')} #{ad.type.name}"
+          = t('.type',field: Type.human_attribute_name('name'), value: ad.type.name)
         %small.span3
-          = "#{t('table.date')} #{ad.updated_at.to_s(:for_manage)}"
+          = t('.date', date: ad.updated_at.to_s(:for_manage) )
 
 
 = will_paginate @ads, renderer: BootstrapPagination::Rails, previous_label: "Предыдущая", next_label: 'Следующая'

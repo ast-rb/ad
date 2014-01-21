@@ -1,4 +1,4 @@
-%h3= t('user_ads.new_ads')
+%h3= t('.header')
 
 = simple_nested_form_for @ad, :html => {:multipart => true} do |f|
   = f.input :title
@@ -7,7 +7,7 @@
   %br
   = f.fields_for :images
   %br
-  = f.link_to_add t('user_ads.add_image'), :images
+  = f.link_to_add t('ads.add_image'), :images
   %br
   %br
   %br
@@ -15,4 +15,4 @@
     %br
     = f.button :submit
 
-= link_to t('views.link.back'), ads_path
+= link_to t('links.back'), ads_path

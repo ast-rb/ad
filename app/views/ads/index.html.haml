@@ -1,4 +1,4 @@
-%h3= t('user_ads.header')
+%h3= t('.header')
 
 %p#notice= notice
 
@@ -18,9 +18,9 @@
 
 %table.table
   %tr
-    %th= t('table.date')
-    %th= t('table.title')
-    %th= t('table.state')
+    %th= Ad.human_attribute_name :updated_at
+    %th= Ad.human_attribute_name :title
+    %th= Ad.human_attribute_name :state
     %th
     %th
     %th
@@ -29,10 +29,10 @@
       %td= ad.updated_at.to_s(:for_manage)
       %td= ad.title
       %td= ad.human_state_name
-      %td= link_to t('views.link.show'), ad
+      %td= link_to t('links.show'), ad
       %td= state_edit_ad(ad)
       %td= state_destroy_ad(ad)
 
 %br
 
-= link_to t('user_ads.new_ads'), new_ad_path
+= link_to t('.new_ads'), new_ad_path

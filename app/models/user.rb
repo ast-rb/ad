@@ -20,13 +20,14 @@ class User < ActiveRecord::Base
 
   # Правильно ли здесь использовать знак вопроса?
   def role?(role)
-    return false unless self.role  # нужно ли
+    return false unless self.role # нужно ли
     self.role.name.to_sym == (role)
   end
 
   private
-    def create_role
-      self.role = Role.find_by_name(:user)  #if ENV["RAILS_ENV"] != 'test'
-    end
+  # решить через default?
+  def create_role
+    self.role = Role.find_by_name(:user) #if ENV["RAILS_ENV"] != 'test'
+  end
 
 end

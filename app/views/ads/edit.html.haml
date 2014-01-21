@@ -1,4 +1,4 @@
-%h3= t('user_ads.update_ads')
+%h3= t('.header')
 
 = simple_nested_form_for @ad, :html => {:multipart => true} do |f|
   = f.input :title
@@ -8,12 +8,12 @@
   = f.collection_select :state_event, @ad.state_transitions, :event, :human_to_name, :include_blank => @ad.human_state_name
   %br
   = f.fields_for :images
-  = f.link_to_add t('user_ads.add_image'), :images
+  = f.link_to_add t('ads.add_image'), :images
   %br
   %br
   %br
   = f.button :submit, label: "Редактировать"
 
-= link_to t('views.link.back'), ads_path
+= link_to t('links.back'), ads_path
 |
-= link_to t('views.link.show'), @ad
+= link_to t('links.show'), @ad
