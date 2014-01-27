@@ -8,7 +8,7 @@ class Ad < ActiveRecord::Base
   validates :title, :body, presence: true
   validates :title, length: {minimum: 3}
 
-  has_many :images
+  has_many :images, dependent: :destroy
   belongs_to :type
   belongs_to :user
   accepts_nested_attributes_for :images, :reject_if => lambda { |a| a[:name].blank? }, allow_destroy: true
@@ -35,20 +35,16 @@ class Ad < ActiveRecord::Base
 
   def self.task_to_published
     # Каждый день в 00.00 меняет статус на published
-    ads = self.where("state = ?", 'approved')
-    ads.each do |ad|
+    self.where("state = ?", 'approved').find_each do |ad|
       ad.publish
     end
   end
 
   def self.task_to_move_archive
     # Каждый день в 23.50 меняет статус на архивный
-    ads = self.where("state = ? and updated_at < ?", 'published', (Date.today - 3.days))
-    ads.each do |ad|
+    ads = self.where("state = ? and updated_at < ?", 'published', (Date.today - 3.days)).find_each do |ad|
       dat_end = ad.updated_at + 3.days
-      if dat_end < Date.today
-        ad.end
-      end
+      ad.end if dat_end < Date.today
     end
   end
 

@@ -1,10 +1,8 @@
-%h3
-  = t(".header")
+%h3= t(".header")
 %p#notice= notice
 %table.table
   %tr
-    %th
-      = t(".header_table")
+    %th= t(".header_table")
     %th
     %th
     %th
@@ -12,7 +10,7 @@
   - @manage_types.each do |manage_type|
     %tr
       %td= 	manage_type.name
-      %td= link_to t("links.destroy"), manage_type_path(manage_type), :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %td= link_to t("links.destroy"), manage_type_path(manage_type), :method => :delete, :data => { :confirm => t('links.confirm') }
 
 %br
 

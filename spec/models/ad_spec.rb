@@ -20,35 +20,30 @@ describe Ad do
 
   context 'whenever'  do
     it 'Method task_to_published should change state on published' do
-      arc1  =  FactoryGirl.create(:ad, state: 'archive')
-      appr =  FactoryGirl.create(:ad, title: 'new text', state: 'approved')
+      arch = FactoryGirl.create(:ad, state: 'archive')
+      appr1 = FactoryGirl.create(:ad, title: 'new text', state: 'approved')
       appr2 =  FactoryGirl.create(:ad, state: 'approved')
+      Ad.all.should == [arch, appr1, appr2]
 
-      Ad.all.should == [arc1, appr, appr2 ]
-      ads = Ad.task_to_published
-      ads.should == [appr, appr2]
+      Ad.task_to_published
 
-      ads.each do |ad|
-        ad.state.should == 'published'
-      end
+      ads = Ad.where('state = ?', 'published')
+      expect(ads.count).to eq 2
     end
 
     it 'Method task_to_move_archive should change state on archive if update_at = 3 days ago' do
       old_update = Date.today - 4.days
 
-      pub1  =  FactoryGirl.create(:ad, state: 'published')
+      pub1 = FactoryGirl.create(:ad, state: 'published')
       pub2 =  FactoryGirl.create(:ad, updated_at: old_update, title: 'new text1', state: 'published')
       pub3 =  FactoryGirl.create(:ad, updated_at: old_update, title: 'new text2', state: 'published')
-
       appr =  FactoryGirl.create(:ad, state: 'approved')
-
       Ad.all.should == [pub1, pub2, pub3, appr ]
-      ads = Ad.task_to_move_archive
-      ads.should == [pub2, pub3]
 
-      ads.each do |ad|
-        ad.reload.state.should == 'archive'
-      end
+      Ad.task_to_move_archive
+      ads = Ad.where('state = ?', 'archive')
+      expect(ads.count).to eq 2
+
     end
   end
 

@@ -22,6 +22,6 @@
       %td
         = link_to t('links.edit'), edit_manage_user_path(manage_user)
       %td
-        = link_to t('links.destroy'), manage_user_path(manage_user), :method => :delete, :data => { :confirm => 'Are you sure?' }
+        = link_to t('links.destroy'), manage_user_path(manage_user), :method => :delete, :data => { :confirm => t('links.confirm') }
 
 
