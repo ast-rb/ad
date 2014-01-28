@@ -1,19 +1,13 @@
 %h3= t('.header')
 
 %p#notice= notice
-
+%p#notice= params[:query]
 = form_tag(ads_path, class: "form-inline", method: :get) do
-  .input-group.input-group-lg
+  = text_field_tag :query, params[:query], class: "typeahead", id: "ads_search", autocomplete: "off"
+  .form-action
+    = submit_tag "Search", class: "btn btn-primary"
     - if params[:query].present?
-      .input-group-btn
-        = link_to "clear", ads_path, class: "btn btn-default"
-    = text_field_tag :query, params[:query], class: "form-control", id: "ads_search", autocomplete: "off"
-    .input-group-btn
-      = submit_tag "Search", class: "btn btn-primary"
-
-= form_tag do
-  = text_field_tag 'name', '', :autocomplete => autocomplete_ads_path
-
+      = link_to "Clear", ads_path, class: "btn"
 
 
 %table.table

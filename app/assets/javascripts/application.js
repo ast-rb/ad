@@ -11,13 +11,15 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
-//= require jquery_ujs
-//= require jquery.ui.core
-//= require jquery.ui.widget
-//= require jquery.ui.position
-//= require jquery_nested_form
-//= require autocomplete-rails
-//= require_tree .
+// require jquery_ujs
+//= require jquery.ui.all
+// require jquery.ui.core
+// require jquery.ui.widget
+// require jquery.ui.position
+// require jquery_nested_form
+// require autocomplete-rails
 // Loads all Bootstrap javascripts
 //= require bootstrap
 //= require html5.image.preview.min
+//= require_tree .
+//= require typeahead.min

@@ -54,6 +54,8 @@ gem 'searchkick'
 gem 'jquery-ui-rails'
 gem 'rails3-jquery-autocomplete'
 
+gem 'i18n', github: 'svenfuchs/i18n'
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
