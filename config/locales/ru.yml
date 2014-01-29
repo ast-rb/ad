@@ -77,10 +77,11 @@ ru:
 
   activerecord:
     models:
-      ad: 'Объявления'
-      type: 'Типы'
-      image: 'Изображения'
-      role: 'Роли'
+      ad: 'Объявление'
+      type: 'Тип'
+      image: 'Изображение'
+      role: 'Роль'
+      user: 'Пользователь'
 
     attributes:
       ad:
@@ -130,6 +131,17 @@ ru:
     new: "Создать"
     edit: "Редактировать"
     show: 'Просмотреть'
+
+  notice:
+    succ_create: '%{elem} выло успешно создано.'
+    succ_update:  '%{elem} было успешно обновленно.'
+    succ_del: '%{elem} was successfully deleted.'
+    ad_other_user: 'Это объявление принадлежит другому пользователю.'
+    state_denied: 'Этот статус запрещен'
+    access_denied: 'Доступ запрещен'
+    type_not_empty: 'Тип не пустой'
+
+
 
   mail:
     greeting: Здравствуйте, %{username}!

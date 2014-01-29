@@ -107,6 +107,13 @@ en:
     farewell: Sincerely company 'Ads'
 
   activerecord:
+    models:
+      ad: 'Ad'
+      type: 'Type'
+      image: 'Image'
+      role: 'Role'
+      user: 'User'
+
     attributes:
       ad:
         title: 'Title:'
@@ -127,3 +134,11 @@ en:
 
       role:
         name: 'Role:'
+
+    notice:
+      succ_create: '%{elem} was successfully created.'
+      succ_update:  '%{elem} was successfully updated.'
+      ad_other_user: 'It is ad other user.'
+      state_denied: 'This state is denied.'
+      access_denied: 'Access Denied'
+      type_not_empty: 'This type is not empty'

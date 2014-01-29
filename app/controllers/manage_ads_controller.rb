@@ -31,7 +31,7 @@ class ManageAdsController < ApplicationController
     @manage_ad = Ad.new(params[:manage_ad])
 
     if @manage_ad.save
-      redirect_to @manage_ad, notice: 'Manage ad was successfully created.'
+      redirect_to @manage_ad, notice: t('notice.succ_create', elem: Ad.model_name.human)
     else
       render action: "new"
     end
@@ -42,7 +42,7 @@ class ManageAdsController < ApplicationController
 
     if @manage_ad.update_attributes(params[:ad])
       MessageForUser.send_status(@manage_ad).deliver
-      redirect_to manage_ads_path, notice: 'Ad was successfully updated.'
+      redirect_to manage_ads_path, notice: t('notice.succ_update', elem: Ad.model_name.human)
     else
       render action: "edit"
     end
@@ -53,7 +53,7 @@ class ManageAdsController < ApplicationController
     @manage_ad = Ad.find(params[:id])
     @manage_ad.destroy
 
-    redirect_to manage_ads_url, notice: 'Ad was successfully deleted.'
+    redirect_to manage_ads_url, notice: t('notice.succ_del', elem: Ad.model_name.human)
   end
 
 end

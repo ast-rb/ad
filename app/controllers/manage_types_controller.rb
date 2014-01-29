@@ -13,7 +13,7 @@ class ManageTypesController < ApplicationController
     @manage_type = Type.new(params[:type])
      
     if @manage_type.save
-       redirect_to manage_types_path, notice: 'Manage type was successfully created.'  
+      redirect_to manage_types_path, notice: t('notice.succ_create', elem: Type.model_name.human)
     else
        render action: "new" 
     end
@@ -23,7 +23,7 @@ class ManageTypesController < ApplicationController
     @manage_type = Type.find(params[:id])
     
     unless @manage_type.ads.empty?
-      redirect_to manage_types_url, notice: 'This type is not empty' and return   
+      redirect_to manage_types_url, notice: t('type_not_empty') and return
     end
 
     @manage_type.destroy 

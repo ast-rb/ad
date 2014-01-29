@@ -41,7 +41,7 @@ class AdsController < ApplicationController
     @ad.user_id = current_user.id
 
     if @ad.save
-      redirect_to @ad, notice: 'Ad was successfully created.'
+      redirect_to @ad, notice: t('notice.succ_create', elem: Ad.model_name.human)
     else
       render action: "new"
     end
@@ -57,15 +57,15 @@ class AdsController < ApplicationController
     # Рефакторинг, допустим перенести в модель допустим в колбек
 
     unless @ad.user_id == current_user.id
-      redirect_to ads_path, notice: 'It is ad other user.' and return
+      redirect_to ads_path, notice: t('notice.ad_other_user') and return
     end
 
     unless params[:ad][:state_event] == '' || params[:ad][:state_event] == 'send_manager' || 'return'
-      redirect_to ads_path, notice: 'This state is denied.' and return
+      redirect_to ads_path, notice: t('notice.state_denied') and return
     end
 
     if @ad.update_attributes(params[:ad])
-      redirect_to @ad, notice: 'Ad was successfully updated.'
+      redirect_to @ad, notice: t('notice.succ_update', elem: Ad.model_name.human)
     else
       render action: "edit"
     end

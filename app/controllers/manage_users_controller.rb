@@ -24,7 +24,7 @@ authorize_resource :class => false
     end
 
     if @manage_user.update_attributes(params[:user])
-      redirect_to manage_users_path, notice: 'Manage user was successfully updated.' 
+      redirect_to manage_users_path, t('notice.succ_update', elem: User.model_name.human)
     else
       render action: "edit" 
     end
