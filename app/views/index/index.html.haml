@@ -21,8 +21,7 @@
         %small.span2
           = t('.type',field: Type.human_attribute_name('name'), value: ad.type.name)
         %small.span3
-          = t('.date', date: ad.updated_at.to_s(:for_manage) )
-
+          = l(ad.updated_at, format: :long)
 
 = will_paginate @ads, renderer: BootstrapPagination::Rails, previous_label: "Предыдущая", next_label: 'Следующая'
 

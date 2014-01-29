@@ -1,13 +1,12 @@
 %h3= t('.header')
 
 %p#notice= notice
-%p#notice= params[:query]
 = form_tag(ads_path, class: "form-inline", method: :get) do
   = text_field_tag :query, params[:query], class: "typeahead", id: "ads_search", autocomplete: "off"
   .form-action
-    = submit_tag "Search", class: "btn btn-primary"
+    = submit_tag t("search_sort.submit"), class: "btn btn-primary"
     - if params[:query].present?
-      = link_to "Clear", ads_path, class: "btn"
+      = link_to t("search_sort.clear"), ads_path, class: "btn"
 
 
 %table.table
@@ -20,7 +19,7 @@
     %th
   - @ads.each do |ad|
     %tr
-      %td= ad.updated_at.to_s(:for_manage)
+      %td= l(ad.updated_at, format: :long)
       %td= ad.title
       %td= ad.human_state_name
       %td= link_to t('links.show'), ad

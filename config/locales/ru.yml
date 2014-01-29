@@ -2,6 +2,9 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 ru:
+  time:
+    formats:
+      long: '%d %b %Y'
   views:
   index:
     index:
@@ -32,9 +35,7 @@ ru:
 
 
   manage_users:
-    #name: 'Имя:'
-    #email: 'Эл. почта:'
-    #role: 'Роль:'
+
     date_reg: 'Дата регистрации: '
     index:
       header: 'Список пользователей:'
@@ -67,6 +68,7 @@ ru:
     find_by: "Поиск по:"
     find_by_header: "Поиск по заголовку:"
     submit: "Искать"
+    clear: 'Очистить'
 
   search:
     title: 'Заголовоку'

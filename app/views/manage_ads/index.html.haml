@@ -33,7 +33,7 @@
       %td
         = manage_ad.title
       %td
-        = manage_ad.updated_at.to_s(:for_manage)
+        = l(manage_ad.updated_at, format: :long)
       %td
         = manage_ad.type.name
       %td

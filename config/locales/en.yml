@@ -2,6 +2,9 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
+  time:
+    formats:
+      long: '%d %b %Y'
   views:
   index:
     index:
@@ -58,6 +61,7 @@ en:
     find_by: 'Find by: '
     find_by_header: 'Find by header: '
     submit: 'Search'
+    clear: 'Clear'
 
   search:
     title: 'Title'
