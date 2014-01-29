@@ -4,14 +4,14 @@ class AdsController < ApplicationController
 
   def index
     if params[:query].present?
-      @ads = current_user.ads.search(params[:query], load: true)
+      @ads = Ad.search(params[:query], where: {user_id: current_user.id}, load: true)
     else
       @ads = current_user.ads.order('created_at DESC').all
     end
   end
 
   def autocomplete
-    render json: Ad.search(params[:query], autocomplete: true).map(&:title)
+    render json: Ad.search(params[:query], where: {user_id: current_user.id}, autocomplete: true).map(&:title)
   end
 
 

@@ -15,6 +15,7 @@ class Ad < ActiveRecord::Base
 
   searchkick autocomplete: ['title']
 
+
   #def self.mysearch
   #  searchkick autocomplete: ['title']
   #  Ad.search("do", autocomplete: true).map(&:title)
