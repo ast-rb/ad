@@ -1,0 +1,33 @@
+
+development:
+  adapter: postgresql
+  min_messages: WARNING
+  database: ads_dev
+  username:
+  password:
+  host: localhost
+  encoding: UTF8
+  pool: 5
+  timeout: 5000
+
+test:
+  adapter: postgresql
+  min_messages: WARNING
+  database: ads_test
+  username:
+  password:
+  host: localhost
+  encoding: UTF8
+  pool: 5
+  timeout: 5000
+
+production:
+  adapter: postgresql
+  min_messages: WARNING
+  database: ads_product
+  username:
+  password:
+  host: localhost
+  encoding: UTF8
+  pool: 5
+  timeout: 5000

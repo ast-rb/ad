@@ -23,6 +23,7 @@
         %small.span3
           = l(ad.updated_at, format: :long)
 
-= will_paginate @ads, renderer: BootstrapPagination::Rails, previous_label: "Предыдущая", next_label: 'Следующая'
+.digg_pagination
+  = will_paginate @ads, container: false, previous_label: "Предыдущая", next_label: 'Следующая'
 
 

@@ -19,7 +19,7 @@
 // require jquery_nested_form
 // require autocomplete-rails
 // Loads all Bootstrap javascripts
-//= require bootstrap
+//= require bootstrap.min
 //= require html5.image.preview.min
 //= require_tree .
 //= require typeahead.min

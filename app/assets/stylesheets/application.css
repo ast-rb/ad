@@ -10,11 +10,12 @@
  *
  *= require_self
  *= require_tree .
+ *= require bootstrap.min
  *= require typeahead
  */
 
 body {
-    padding-top: 60px; /* Нужно добавить, если navbar фиксирован сверху */
+    padding-top: 60px; /* Нужно добавить, если navbar фиксирован сверху*/
 }
 
 .navbar .brand {
