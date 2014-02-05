@@ -1,20 +1,19 @@
 class ManageUsersController < ApplicationController
   authorize_resource :class => false
 
+  before_filter :find_user, only: [:show, :edit, :update, :destroy]
+
   def index
     @manage_users = User.all
   end
 
   def show
-    @manage_user = User.find(params[:id])
   end
 
   def edit
-    @manage_user = User.find(params[:id])
   end
 
   def update
-    @manage_user = User.find(params[:id])
 
     unless @manage_user ==  current_user  
       @role = Role.find(params[:role][:id])
@@ -30,19 +29,13 @@ class ManageUsersController < ApplicationController
   end
 
   def destroy
-    @manage_user = User.find(params[:id])
     @manage_user.destroy
     redirect_to action: "index"
   end
 
-
-
-
   private
-
-    #def find_item
-    #  @manage_user = User.where(id: params[:id]).first
-    #  redirect_to manage_users_path, notice: 'Not found page' unless @manage_user
-    #end
+  def find_user
+    @manage_user = User.find(params[:id])
+  end
 
 end

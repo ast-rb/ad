@@ -1,7 +1,7 @@
 class AdsController < ApplicationController
 
   before_filter :authenticate_user!
-  before_filter :find_ad_by_id, only: [:show, :edit, :update, :destroy]
+  before_filter :find_ad_by_id, only: [:show, :update, :destroy]
 
   def index
     if params[:query].present?
@@ -26,8 +26,8 @@ class AdsController < ApplicationController
   end
 
   def edit
+    @ad = Ad.where(state: ['draft', 'archive']).find(params[:id])
     image = @ad.images.build
-    redirect_to action: :index unless (@ad.state == 'draft' || @ad.state == 'archive')
   end
 
 
@@ -47,7 +47,12 @@ class AdsController < ApplicationController
 
   def update
 
-    unless params[:ad][:state_event] == '' || params[:ad][:state_event] == 'send_manager' || 'return'
+    #unless params[:ad][:state_event] == '' || params[:ad][:state_event] == 'send_manager' || 'return'
+    #  redirect_to ads_path, notice: t('notice.state_denied') and return
+    #end
+    #render text: params[:ad][:state_event]
+
+    unless ['', 'send_manager', 'return'].include?(params[:ad][:state_event])
       redirect_to ads_path, notice: t('notice.state_denied') and return
     end
 

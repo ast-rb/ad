@@ -22,7 +22,7 @@ Advertisement::Application.routes.draw do
     collection { get :search, to: 'manage_ads#index' }
   end
 
-  resources :manage_types, only: [:index, :new, :destroy, :create]
+  resources :manage_types, only: [:index, :new, :create, :destroy]
 
   # get "index/show"
   # get "index/index"
