@@ -1,6 +1,7 @@
 class AdsController < ApplicationController
 
   before_filter :authenticate_user!
+  before_filter :find_ad_by_id, only: [:show, :edit, :update, :destroy]
 
   def index
     if params[:query].present?
@@ -16,8 +17,6 @@ class AdsController < ApplicationController
 
 
   def show
-    # Find_by_id, используется что бы не вызывать эксепшн, или лучше с эксепшн?
-    @ad = current_user.ads.find_by_id(params[:id])
     redirect_to action: :index unless @ad
   end
 
@@ -27,11 +26,8 @@ class AdsController < ApplicationController
   end
 
   def edit
-    @ad = current_user.ads.find_by_id(params[:id])
     image = @ad.images.build
-
-    # Возможно как то отрефакторить, но не совсем понимаю как.
-    redirect_to action: :index unless @ad && (@ad.state == 'draft' || @ad.state == 'archive')
+    redirect_to action: :index unless (@ad.state == 'draft' || @ad.state == 'archive')
   end
 
 
@@ -51,15 +47,6 @@ class AdsController < ApplicationController
 
   def update
 
-    # Есть возможность изменить любую
-    @ad = Ad.find(params[:id])
-
-    # Рефакторинг, допустим перенести в модель допустим в колбек
-
-    unless @ad.user_id == current_user.id
-      redirect_to ads_path, notice: t('notice.ad_other_user') and return
-    end
-
     unless params[:ad][:state_event] == '' || params[:ad][:state_event] == 'send_manager' || 'return'
       redirect_to ads_path, notice: t('notice.state_denied') and return
     end
@@ -73,12 +60,12 @@ class AdsController < ApplicationController
 
 
   def destroy
-    @ad = Ad.find(params[:id])
     @ad.destroy
     redirect_to ads_url
   end
 
   private
-
-
+  def find_ad_by_id
+    @ad = current_user.ads.find(params[:id])
+  end
 end
